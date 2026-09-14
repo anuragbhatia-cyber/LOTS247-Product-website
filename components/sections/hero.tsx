@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BookDemoButton } from "@/components/book-demo-button";
 
 const slide = {
@@ -7,7 +6,7 @@ const slide = {
   headingBottom: "Legal Assistance",
   sub: "24×7 roadside legal assistance, compliance automation, challan management, and legal operations — all on a single platform built for fleets, mobility companies, and vehicle owners.",
   primaryCta: { label: "Book a demo", href: "/contact" },
-  secondaryCta: { label: "Login", href: "/login" },
+  secondaryCta: { label: "Login", href: "https://dashboard.lots247.in/login" },
   image: {
     src: "/hero-drivers.png",
     alt: "Truck driver and taxi driver standing next to their vehicles",
@@ -51,9 +50,14 @@ export function Hero() {
                   />
                 </svg>
               </BookDemoButton>
-              <Link href={slide.secondaryCta.href} className="btn-ghost">
+              <a
+                href={slide.secondaryCta.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost"
+              >
                 {slide.secondaryCta.label}
-              </Link>
+              </a>
             </div>
           </div>
 

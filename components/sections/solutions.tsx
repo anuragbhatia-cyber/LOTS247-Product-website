@@ -1,7 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { SectionHeader } from "@/components/ui";
+
+type ClientLogo = { src: string; alt: string };
 
 type Industry = {
   slug: string;
@@ -10,6 +13,7 @@ type Industry = {
   desc: string;
   bullets: string[];
   logos: string[];
+  clientLogos?: ClientLogo[];
 };
 
 export const industries: Industry[] = [
@@ -25,32 +29,34 @@ export const industries: Industry[] = [
       "Compliance dashboards for ops teams",
     ],
     logos: ["Delhivery", "BlueDart", "Shadowfax", "Ecom Express", "Rivigo", "TCI"],
+    clientLogos: [
+      { src: "/client-blr.png", alt: "BLR" },
+      { src: "/client-bluwheelz.png", alt: "Bluwheelz" },
+      { src: "/client-eco-mobility.png", alt: "Eco Mobility" },
+      { src: "/client-greenline.png", alt: "Greenline" },
+      { src: "/client-mooving.png", alt: "Mooving" },
+      { src: "/client-samrx.png", alt: "SamRx" },
+      { src: "/client-supreme.png", alt: "Supreme" },
+    ],
   },
   {
-    slug: "dealership",
-    label: "Dealership",
-    headline: "Legal & compliance layer for vehicle dealerships",
-    desc: "Support your customers post-sale with roadside legal help, RTO services, and documentation — under your brand.",
+    slug: "insurance",
+    label: "Insurance",
+    headline: "Faster claims, defensible legal outcomes",
+    desc: "Structured on-site legal response and case management for motor insurance and third-party claims.",
     bullets: [
-      "White-labelled legal assistance for buyers",
-      "RTO-as-a-service for registrations and transfers",
-      "Documentation and permit handling",
-      "Value-added services to increase LTV",
+      "On-site legal presence at incident scenes",
+      "Documented incident and case histories",
+      "Fraud reduction through verified reports",
+      "APIs for policy, claims, and compliance data",
     ],
-    logos: ["Tata", "Mahindra", "Maruti", "Hyundai", "Toyota", "Kia"],
-  },
-  {
-    slug: "bfsi",
-    label: "BFSI",
-    headline: "Legal-tech for vehicle finance and lending",
-    desc: "Risk, recovery, and compliance workflows built for banks, NBFCs, and vehicle-finance portfolios.",
-    bullets: [
-      "Repossession & recovery legal support",
-      "Borrower and asset compliance checks",
-      "Documentation and lien management",
-      "Legal ops APIs for lending platforms",
+    logos: ["ICICI Lombard", "HDFC Ergo", "Bajaj Allianz", "Tata AIG", "Digit", "Acko"],
+    clientLogos: [
+      { src: "/client-chola.png", alt: "Chola MS" },
+      { src: "/client-hdfc-ergo.png", alt: "HDFC Ergo" },
+      { src: "/client-bajaj-general.png", alt: "Bajaj General Insurance" },
+      { src: "/client-icici-lombard.png", alt: "ICICI Lombard" },
     ],
-    logos: ["HDFC", "ICICI", "Axis", "Kotak", "SBI", "Bajaj Finance"],
   },
   {
     slug: "oems",
@@ -66,21 +72,8 @@ export const industries: Industry[] = [
     logos: ["Tata", "Mahindra", "Ashok Leyland", "Eicher", "VE Commercial", "BharatBenz"],
   },
   {
-    slug: "insurance",
-    label: "Insurance",
-    headline: "Faster claims, defensible legal outcomes",
-    desc: "Structured on-site legal response and case management for motor insurance and third-party claims.",
-    bullets: [
-      "On-site legal presence at incident scenes",
-      "Documented incident and case histories",
-      "Fraud reduction through verified reports",
-      "APIs for policy, claims, and compliance data",
-    ],
-    logos: ["ICICI Lombard", "HDFC Ergo", "Bajaj Allianz", "Tata AIG", "Digit", "Acko"],
-  },
-  {
     slug: "rsa",
-    label: "RSA",
+    label: "RSA's",
     headline: "Legal layer for roadside assistance providers",
     desc: "Extend on-ground roadside assistance with a nationwide legal network — resolve disputes, detentions, and challans on the spot.",
     bullets: [
@@ -90,6 +83,40 @@ export const industries: Industry[] = [
       "APIs to integrate with existing RSA dispatch",
     ],
     logos: ["Allianz Partners", "TVS Auto", "Europ Assistance", "Global Assure", "AAI", "Roadzen"],
+    clientLogos: [
+      { src: "/client-crossroads.png", alt: "Crossroads" },
+      { src: "/client-across-assist.png", alt: "Across Assist" },
+    ],
+  },
+  {
+    slug: "dealership",
+    label: "Dealerships",
+    headline: "Legal & compliance layer for vehicle dealerships",
+    desc: "Support your customers post-sale with roadside legal help, RTO services, and documentation — under your brand.",
+    bullets: [
+      "White-labelled legal assistance for buyers",
+      "RTO-as-a-service for registrations and transfers",
+      "Documentation and permit handling",
+      "Value-added services to increase LTV",
+    ],
+    logos: ["JS4 Wheels", "Ganganagar Automobiles", "Saisha Motors", "Vishal Auto", "Daksh Auto"],
+  },
+  {
+    slug: "others",
+    label: "Others",
+    headline: "Legal infrastructure for every mobility stakeholder",
+    desc: "Custom legal and compliance workflows for fintechs, aggregators, EV players, and other mobility-adjacent businesses.",
+    bullets: [
+      "Tailored legal ops for niche mobility workflows",
+      "Compliance and documentation support at scale",
+      "APIs for RC, DL, challan, and permit checks",
+      "Nationwide on-ground legal network",
+    ],
+    logos: ["Ola", "Uber", "Rapido", "Zoomcar", "BluSmart", "Yulu"],
+    clientLogos: [
+      { src: "/client-hoora.png", alt: "Hoora" },
+      { src: "/client-ayvens.png", alt: "Ayvens" },
+    ],
   },
 ];
 
@@ -204,15 +231,30 @@ export function Solutions() {
                 <div className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-500">
                   Trusted by
                 </div>
-                <div className="mt-3 grid grid-cols-3 gap-2">
-                  {current.logos.map((logo) => (
-                    <div
-                      key={logo}
-                      className="grid h-12 place-items-center rounded-lg bg-surface-alt text-[12px] font-semibold text-ink-700"
-                    >
-                      {logo}
-                    </div>
-                  ))}
+                <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4">
+                  {current.clientLogos
+                    ? current.clientLogos.map((logo) => (
+                        <div
+                          key={logo.src}
+                          className="relative grid h-12 place-items-center rounded-lg bg-surface-alt px-2"
+                        >
+                          <Image
+                            src={logo.src}
+                            alt={logo.alt}
+                            fill
+                            sizes="(min-width: 768px) 140px, 28vw"
+                            className="object-contain p-1.5"
+                          />
+                        </div>
+                      ))
+                    : current.logos.map((logo) => (
+                        <div
+                          key={logo}
+                          className="grid h-12 place-items-center rounded-lg bg-surface-alt text-[12px] font-semibold text-ink-700"
+                        >
+                          {logo}
+                        </div>
+                      ))}
                 </div>
               </div>
             </div>

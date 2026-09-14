@@ -27,7 +27,6 @@ const apisItems = [
 const linksBefore = [
   { href: "/platform", label: "Platform" },
   { href: "/industries", label: "Industries" },
-  { href: "/#pricing", label: "Pricing" },
 ];
 
 const linksAfter = [{ href: "/company", label: "About Us" }];
@@ -239,12 +238,14 @@ export function SiteNav() {
           </nav>
         </div>
         <div className="flex items-center gap-4">
-          <Link
-            href="/login"
+          <a
+            href="https://dashboard.lots247.in/login"
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden text-[15px] font-semibold text-ink-900 hover:text-accent md:inline"
           >
             Login
-          </Link>
+          </a>
           <BookDemoButton className="btn-primary inline-flex items-center gap-2">
             Book a demo
             <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className="h-4 w-4">

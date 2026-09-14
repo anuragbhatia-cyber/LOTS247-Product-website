@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 
 type Props = {
   className?: string;
@@ -10,6 +11,11 @@ type Props = {
 export function BookDemoButton({ className, children }: Props) {
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const close = useCallback(() => setOpen(false), []);
 
@@ -42,12 +48,12 @@ export function BookDemoButton({ className, children }: Props) {
         {children ?? "Book a demo"}
       </button>
 
-      {open && (
+      {open && mounted && createPortal(
         <div
           role="dialog"
           aria-modal="true"
           aria-labelledby={titleId}
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto p-4"
         >
           <button
             type="button"
@@ -188,7 +194,8 @@ export function BookDemoButton({ className, children }: Props) {
               </>
             )}
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
