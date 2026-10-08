@@ -29,7 +29,7 @@ const linksBefore = [
   { href: "/industries", label: "Industries" },
 ];
 
-const linksAfter = [{ href: "/company", label: "About Us" }];
+const linksAfter: { href: string; label: string }[] = [];
 
 export function SiteNav() {
   const [hidden, setHidden] = useState(false);

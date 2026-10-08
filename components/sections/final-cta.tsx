@@ -6,29 +6,10 @@ export function FinalCta() {
   return (
     <section className="section bg-surface-alt">
       <div className="container-x">
-        <div
-          className="relative overflow-hidden rounded-3xl bg-brand px-8 py-16 text-white md:px-20 md:py-20"
-        >
-          <Image
-            src="/cta-mobility.png"
-            alt=""
-            fill
-            priority={false}
-            sizes="100vw"
-            className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-          />
-          <div
-            className="pointer-events-none absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(90deg, rgba(15,23,42,0.95) 0%, rgba(15,23,42,0.85) 40%, rgba(15,23,42,0.15) 75%, rgba(15,23,42,0) 100%)",
-            }}
-          />
-          <div className="relative max-w-3xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-white leading-[1.6]">
-              Let&rsquo;s put a lawyer <br />
-              within reach of every <br />
-              vehicle you run
+        <div className="grid overflow-hidden rounded-3xl bg-brand text-white md:grid-cols-[1.6fr_1fr]">
+          <div className="px-8 py-16 md:px-14 md:py-20">
+            <h2 className="text-3xl font-bold leading-[1.2] text-white md:text-4xl">
+              Let&rsquo;s put a lawyer within reach of every vehicle you run
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-white/80">
               24×7 legal infrastructure, built for mobility.
@@ -44,6 +25,24 @@ export function FinalCta() {
                 Start for free
               </Link>
             </div>
+          </div>
+          <div className="relative min-h-[320px] md:min-h-full">
+            <Image
+              src="/cta-support.webp"
+              alt="LOTS247 support agents on headsets at the ops desk with a logistics yard in the background"
+              fill
+              sizes="(min-width: 768px) 40vw, 100vw"
+              className="object-cover scale-x-[-1]"
+              style={{ objectPosition: "right center" }}
+            />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(90deg, #0F172A 0%, rgba(15,23,42,0.85) 18%, rgba(15,23,42,0.35) 38%, rgba(15,23,42,0) 60%)",
+              }}
+            />
           </div>
         </div>
       </div>

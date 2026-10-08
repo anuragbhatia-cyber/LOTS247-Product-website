@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export function SarathiOffer() {
@@ -10,7 +11,19 @@ export function SarathiOffer() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-14 grid max-w-6xl gap-6 lg:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-7xl gap-6 lg:grid-cols-3">
+          <div className="relative overflow-hidden rounded-3xl shadow-card lg:min-h-full">
+            <div className="relative aspect-[4/5] w-full lg:aspect-auto lg:h-full">
+              <Image
+                src="/sarathi-driver.webp"
+                alt="Truck driver smiling at his phone while leaning against his truck on a highway at sunset"
+                fill
+                sizes="(min-width: 1024px) 420px, 100vw"
+                className="object-cover"
+                style={{ objectPosition: "center 30%" }}
+              />
+            </div>
+          </div>
           <div className="relative overflow-hidden rounded-3xl bg-ink-900 p-8 text-white shadow-card md:p-10">
             <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-accent">
               Sarathi Vehicle Plan
@@ -52,52 +65,39 @@ export function SarathiOffer() {
               </span>
             </Link>
 
-            <Link
-              href="/#pricing"
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-6 py-4 text-[15px] font-semibold text-white transition-colors hover:border-white/40 hover:bg-white/10"
-            >
-              View plan details
-              <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className="h-4 w-4">
-                <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </Link>
           </div>
 
           <div className="rounded-3xl border border-ink-300/60 bg-white p-8 shadow-card md:p-10">
-            <div className="flex items-start gap-5">
-              <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-2xl bg-accent/10 text-accent">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-7 w-7">
-                  <circle cx="12" cy="12" r="8" />
-                  <path d="M12 8v8M9 10.5c0-1.1 1.3-2 3-2s3 .9 3 2-1.3 2-3 2-3 .9-3 2 1.3 2 3 2 3-.9 3-2" />
-                </svg>
+            <div>
+              <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-accent">
+                Wallet Top Up
               </div>
-              <div>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.14em] text-accent">
-                  Wallet Top Up
-                </div>
-                <p className="mt-2 text-[22px] font-bold leading-snug text-ink-900 md:text-[26px]">
-                  Sarathi plan ke saath{" "}
-                  <span className="text-accent">1100</span> wallet credits milte hain.
-                </p>
-              </div>
+              <p className="mt-2 text-[18px] font-bold leading-snug text-ink-900 md:text-[20px]">
+                Sarathi plan ke saath{" "}
+                <span className="text-accent">1100</span> wallet credits milte hain.
+              </p>
             </div>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-accent/30 bg-accent/[0.06] p-5">
-                <div className="text-3xl font-bold text-ink-900">1000</div>
-                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-                  Credits
+            <div className="mt-6 flex flex-col gap-3">
+              <div className="flex items-center gap-4 rounded-xl border border-accent/30 bg-accent/[0.06] p-4">
+                <div className="flex min-w-[72px] flex-col">
+                  <span className="text-xl font-bold leading-none text-ink-900">1000</span>
+                  <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
+                    Credits
+                  </span>
                 </div>
-                <p className="mt-3 text-[14px] leading-[1.6] text-ink-700">
+                <p className="text-[13px] leading-[1.35] text-ink-700">
                   Challan convenience fee usage ke liye.
                 </p>
               </div>
-              <div className="rounded-2xl border border-ink-300/60 bg-white p-5">
-                <div className="text-3xl font-bold text-ink-900">100</div>
-                <div className="mt-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-ink-500">
-                  Credits
+              <div className="flex items-center gap-4 rounded-xl border border-ink-300/60 bg-white p-4">
+                <div className="flex min-w-[72px] flex-col">
+                  <span className="text-xl font-bold leading-none text-ink-900">100</span>
+                  <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-500">
+                    Credits
+                  </span>
                 </div>
-                <p className="mt-3 text-[14px] leading-[1.6] text-ink-700">
+                <p className="text-[13px] leading-[1.35] text-ink-700">
                   RC, challan lookup aur DL check jaise vehicle checks ke liye.
                 </p>
               </div>

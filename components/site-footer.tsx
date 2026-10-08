@@ -52,7 +52,6 @@ const cols = [
   {
     title: "Company",
     links: [
-      { l: "About", h: "/company" },
       { l: "Contact", h: "/contact" },
     ],
   },
@@ -60,7 +59,6 @@ const cols = [
     title: "Support",
     links: [
       { l: "FAQ", h: "/support#faq" },
-      { l: "1800-410-1033", h: "tel:18004101033" },
     ],
   },
   {

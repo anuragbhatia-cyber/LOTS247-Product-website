@@ -19,7 +19,7 @@ export default function IndustriesPage() {
         primaryCta={{ label: "Book a demo", href: "/contact" }}
         secondaryCta={{ label: "Login", href: "/login" }}
       />
-      <Solutions />
+      <Solutions expanded />
       <FinalCta />
     </main>
   );
