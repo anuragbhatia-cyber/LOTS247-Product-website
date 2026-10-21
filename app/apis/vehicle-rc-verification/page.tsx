@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import Image from "next/image";
 import { BookDemoButton } from "@/components/book-demo-button";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionHeader } from "@/components/ui";
@@ -129,16 +129,34 @@ const steps = [
     n: "01",
     title: "Enter Vehicle Number",
     desc: "Provide the vehicle registration number through the API request.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
+      </svg>
+    ),
   },
   {
     n: "02",
     title: "API Processing",
     desc: "LOTS247 processes the request and retrieves the available vehicle registration information.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
   },
   {
     n: "03",
     title: "Get Vehicle Details",
     desc: "Receive comprehensive vehicle information in a structured API response that can be integrated into your existing platform or workflow.",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+        <path d="M14 2v6h6" />
+        <path d="M9 15l2 2 4-4" />
+      </svg>
+    ),
   },
 ];
 
@@ -148,43 +166,16 @@ export default function VehicleRcVerificationApiPage() {
       <section className="relative overflow-hidden bg-ink-900 pt-20 pb-24 text-white md:pt-24 md:pb-28">
         <div className="container-x relative">
           <div className="mx-auto max-w-3xl text-center">
-            <div className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.15em] text-accent">
-              APIs
-            </div>
-            <h1 className="h1 mt-4 text-white">
+            <h1 className="h1 text-white">
               Vehicle RC Verification API
             </h1>
-            <p className="lead mt-6 text-white/80">
-              Verify and access essential vehicle registration details through
-              the LOTS247 Vehicle RC Verification API.
-            </p>
-            <p className="mt-4 text-[15px] leading-relaxed text-white/65">
+            <p className="mt-6 text-lg leading-[1.6] text-white/80">
               Simplify vehicle verification workflows with structured vehicle
               data, helping businesses reduce manual efforts and improve
               operational efficiency.
             </p>
-            <div className="mt-8 flex flex-wrap justify-center gap-3">
-              <Link
-                href="/contact"
-                className="btn-primary inline-flex items-center gap-2"
-              >
-                Contact Sales
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                  className="h-4 w-4"
-                >
-                  <path
-                    d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
-              <BookDemoButton className="btn inline-flex border border-white/20 bg-white/5 text-white hover:bg-white/10">
+            <div className="mt-8 flex justify-center">
+              <BookDemoButton className="btn-primary">
                 Book a demo
               </BookDemoButton>
             </div>
@@ -194,16 +185,33 @@ export default function VehicleRcVerificationApiPage() {
 
       <section className="section bg-white">
         <div className="container-x">
-          <SectionHeader
-            title="Simplify Vehicle Verification with LOTS247"
-            sub="The LOTS247 Vehicle RC Verification API enables businesses to verify and retrieve essential vehicle registration information using a vehicle registration number."
-          />
-          <p className="mx-auto mt-6 max-w-3xl text-center text-[15px] leading-relaxed text-ink-700">
-            Designed for industries such as insurance, fleet management,
-            logistics, fintech, NBFCs, mobility, and automotive services, the
-            API helps automate vehicle verification workflows and reduce
-            dependency on manual checks.
-          </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+            <div>
+              <h2 className="h2 text-ink-900">
+                Simplify Vehicle Verification with LOTS247
+              </h2>
+              <p className="mt-5 text-lg leading-[1.6] text-ink-700">
+                The LOTS247 Vehicle RC Verification API enables businesses to
+                verify and retrieve essential vehicle registration information
+                using a vehicle registration number.
+              </p>
+              <p className="mt-4 text-[15px] leading-relaxed text-ink-700">
+                Designed for industries such as insurance, fleet management,
+                logistics, fintech, NBFCs, mobility, and automotive services,
+                the API helps automate vehicle verification workflows and
+                reduce dependency on manual checks.
+              </p>
+            </div>
+            <div className="relative aspect-[3/2] w-full">
+              <Image
+                src="/api-plate-infographic.png"
+                alt="Vehicle number plate infographic showing owner details, pending challans, challan history, and fine amount"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-contain"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -213,12 +221,15 @@ export default function VehicleRcVerificationApiPage() {
             title="Simple, Fast & Seamless Verification"
           />
           <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {steps.map((s) => (
+            {steps.map((s, idx) => (
               <div
                 key={s.n}
-                className="relative rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
+                className="relative rounded-2xl border border-accent/50 bg-white p-6 transition-all hover:shadow-card"
               >
-                <div className="font-mono text-sm font-bold text-accent">
+                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent-soft text-accent">
+                  {s.icon}
+                </div>
+                <div className="mt-5 font-mono text-sm font-bold text-accent">
                   Step {s.n}
                 </div>
                 <div className="mt-3 text-lg font-semibold text-ink-900">
@@ -227,6 +238,12 @@ export default function VehicleRcVerificationApiPage() {
                 <p className="mt-2 text-sm leading-relaxed text-ink-700">
                   {s.desc}
                 </p>
+                {idx < steps.length - 1 ? (
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute left-full top-1/2 z-10 hidden h-1 w-6 -translate-x-px -translate-y-1/2 rounded-full bg-accent md:block"
+                  />
+                ) : null}
               </div>
             ))}
           </div>
@@ -284,7 +301,7 @@ export default function VehicleRcVerificationApiPage() {
                     className="flex items-start gap-3 rounded-lg border border-ink-300/60 bg-white px-3 py-2"
                   >
                     <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    <span className="text-[14px] text-ink-900">{f}</span>
+                    <span className="text-[14px] font-medium text-ink-900">{f}</span>
                   </li>
                 ))}
               </ul>

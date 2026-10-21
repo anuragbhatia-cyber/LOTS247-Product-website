@@ -15,7 +15,6 @@ const solutionsItems = [
 const resourcesItems = [
   { href: "/resources/blogs", label: "Blogs" },
   { href: "/resources/press-and-news", label: "Press and News" },
-  { href: "/resources/success-stories", label: "Success Stories" },
 ];
 
 const apisItems = [
@@ -24,9 +23,17 @@ const apisItems = [
   { href: "/apis/challan", label: "Vehicle Challan Check API" },
 ];
 
+const industriesItems = [
+  { href: "/industries#logistics", label: "Logistics" },
+  { href: "/industries#insurance", label: "Insurance" },
+  { href: "/industries#oems", label: "OEMs" },
+  { href: "/industries#rsa", label: "RSA's" },
+  { href: "/industries#dealership", label: "Dealerships" },
+  { href: "/industries#others", label: "Others" },
+];
+
 const linksBefore = [
   { href: "/platform", label: "Platform" },
-  { href: "/industries", label: "Industries" },
 ];
 
 const linksAfter: { href: string; label: string }[] = [];
@@ -91,11 +98,13 @@ export function SiteNav() {
             <div className="group relative flex items-center">
               <Link
                 href="/solutions"
-                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors hover:text-accent group-hover:text-accent ${
-                  isGroupActive("/solutions") ? "text-accent" : "text-ink-900"
+                className={`inline-flex items-center gap-1 text-[15px] transition-colors hover:text-accent group-hover:text-accent ${
+                  isGroupActive("/solutions")
+                    ? "font-semibold text-accent"
+                    : "font-medium text-ink-900"
                 }`}
               >
-                <span className="font-medium">Solutions</span>
+                <span>Solutions</span>
                 <svg
                   viewBox="0 0 20 20"
                   fill="none"
@@ -142,8 +151,10 @@ export function SiteNav() {
                 key={l.href}
                 href={l.href}
                 data-text={l.label}
-                className={`nav-link text-[15px] font-medium transition-colors hover:text-accent ${
-                  isActive(l.href) ? "text-accent" : "text-ink-900"
+                className={`nav-link text-[15px] transition-colors hover:text-accent ${
+                  isActive(l.href)
+                    ? "font-semibold text-accent"
+                    : "font-medium text-ink-900"
                 }`}
               >
                 {l.label}
@@ -151,12 +162,14 @@ export function SiteNav() {
             ))}
             <div className="group relative flex items-center">
               <Link
-                href="/apis"
-                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors hover:text-accent group-hover:text-accent ${
-                  isGroupActive("/apis") ? "text-accent" : "text-ink-900"
+                href="/industries"
+                className={`inline-flex items-center gap-1 text-[15px] transition-colors hover:text-accent group-hover:text-accent ${
+                  isGroupActive("/industries")
+                    ? "font-semibold text-accent"
+                    : "font-medium text-ink-900"
                 }`}
               >
-                <span className="font-medium">APIs</span>
+                <span>Industries</span>
                 <svg
                   viewBox="0 0 20 20"
                   fill="none"
@@ -172,6 +185,46 @@ export function SiteNav() {
                   />
                 </svg>
               </Link>
+              <div className="invisible absolute left-1/2 top-full z-50 min-w-[180px] -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
+                <div className="rounded-xl border border-ink-300/60 bg-white p-2 shadow-lg">
+                  {industriesItems.map((i) => (
+                    <Link
+                      key={i.href}
+                      href={i.href}
+                      className="block rounded-lg px-3 py-2 text-[14px] font-medium text-ink-900 transition-colors hover:bg-ink-100 hover:text-accent"
+                    >
+                      {i.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="group relative flex items-center">
+              <button
+                type="button"
+                aria-haspopup="menu"
+                className={`inline-flex cursor-default items-center gap-1 text-[15px] transition-colors hover:text-accent group-hover:text-accent ${
+                  isGroupActive("/apis")
+                    ? "font-semibold text-accent"
+                    : "font-medium text-ink-900"
+                }`}
+              >
+                <span>APIs</span>
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                  className="h-3 w-3 transition-transform group-hover:rotate-180"
+                >
+                  <path
+                    d="M5 8l5 5 5-5"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
               <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
                 <div className="rounded-xl border border-ink-300/60 bg-white p-2 shadow-lg">
                   {apisItems.map((a) => (
@@ -189,11 +242,13 @@ export function SiteNav() {
             <div className="group relative flex items-center">
               <Link
                 href="/resources"
-                className={`inline-flex items-center gap-1 text-[15px] font-medium transition-colors hover:text-accent group-hover:text-accent ${
-                  isGroupActive("/resources") ? "text-accent" : "text-ink-900"
+                className={`inline-flex items-center gap-1 text-[15px] transition-colors hover:text-accent group-hover:text-accent ${
+                  isGroupActive("/resources")
+                    ? "font-semibold text-accent"
+                    : "font-medium text-ink-900"
                 }`}
               >
-                <span className="font-medium">Resources</span>
+                <span>Resources</span>
                 <svg
                   viewBox="0 0 20 20"
                   fill="none"

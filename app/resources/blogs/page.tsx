@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { SectionHeader, ArrowIcon } from "@/components/ui";
+import { BlogGrid } from "@/components/blog-grid";
 import { FinalCta } from "@/components/sections/final-cta";
 
 export const metadata: Metadata = {
@@ -46,7 +47,8 @@ export default function BlogsPage() {
     <main>
       <section className="section bg-surface-alt">
         <div className="container-x">
-          <article className="grid gap-8 rounded-2xl border border-ink-300/60 bg-white p-6 md:grid-cols-[1.1fr_1fr] md:items-center md:p-10">
+          <SectionHeader title="Featured Article" />
+          <article className="mt-14 grid gap-8 rounded-2xl border border-ink-300/60 bg-white p-6 md:grid-cols-[1.1fr_1fr] md:items-center md:p-10">
             <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-surface-alt">
               <Image
                 src={featured.image}
@@ -84,39 +86,7 @@ export default function BlogsPage() {
       <section className="section bg-white" id="latest">
         <div className="container-x">
           <SectionHeader title="Latest from our blog" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {blogs.map((b) => (
-              <article
-                key={b.slug}
-                className="card flex flex-col hover:-translate-y-0.5"
-              >
-                <div className="relative aspect-[16/10] overflow-hidden rounded-xl bg-surface-alt">
-                  <Image
-                    src={b.image}
-                    alt={b.alt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-                <h3 className="mt-5 line-clamp-3 text-lg font-semibold leading-snug text-ink-900">
-                  {b.title}
-                </h3>
-                <p className="mt-3 line-clamp-3 flex-1 text-[15px] leading-relaxed text-ink-700">
-                  {b.desc}
-                </p>
-                <div className="mt-5 text-xs text-ink-500">{b.date}</div>
-                <a
-                  href={`https://lots247.in/blog/${b.slug}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-arrow mt-5"
-                >
-                  Read <ArrowIcon className="h-3.5 w-3.5" />
-                </a>
-              </article>
-            ))}
-          </div>
+          <BlogGrid blogs={blogs} pageSize={2} />
         </div>
       </section>
 

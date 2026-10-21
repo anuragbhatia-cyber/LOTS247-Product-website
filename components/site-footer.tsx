@@ -50,12 +50,6 @@ const cols = [
     ],
   },
   {
-    title: "Company",
-    links: [
-      { l: "Contact", h: "/contact" },
-    ],
-  },
-  {
     title: "Support",
     links: [
       { l: "FAQ", h: "/support#faq" },
@@ -74,7 +68,7 @@ export function SiteFooter() {
   return (
     <footer className="bg-ink-900 text-white">
       <div className="container-x py-16">
-        <div className="grid gap-12 md:grid-cols-[2fr_repeat(4,1fr)]">
+        <div className="grid gap-12 md:grid-cols-[2fr_repeat(3,1fr)]">
           <div className="md:pr-16 lg:pr-24">
             <Logo variant="full" />
             <p className="mt-5 text-sm leading-relaxed text-white/70">

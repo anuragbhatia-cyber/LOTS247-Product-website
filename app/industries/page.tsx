@@ -13,7 +13,6 @@ export default function IndustriesPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Industries"
         title="Built for every mobility stakeholder"
         sub="From logistics and dealerships to BFSI, OEMs, insurance, and RSA — see how LOTS247 delivers legal and compliance infrastructure tailored to your industry."
         primaryCta={{ label: "Book a demo", href: "/contact" }}

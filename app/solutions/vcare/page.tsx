@@ -381,14 +381,8 @@ export default function VCarePage() {
                   per Account / Year
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link
-                    href="/contact"
-                    className="btn-primary inline-flex items-center gap-2"
-                  >
-                    Contact Sales
-                  </Link>
-                  <BookDemoButton className="btn inline-flex border border-ink-300 bg-white text-ink-900 hover:bg-surface-alt">
-                    Request a Demo
+                  <BookDemoButton className="btn-primary">
+                    Book a demo
                   </BookDemoButton>
                 </div>
               </div>

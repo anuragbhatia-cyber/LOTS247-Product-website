@@ -148,7 +148,10 @@ export const industries: Industry[] = [
 function IndustryCard({ item, compact = false }: { item: Industry; compact?: boolean }) {
   if (compact) {
     return (
-      <div className="flex h-full flex-col overflow-hidden rounded-2xl border border-ink-300/60 bg-white shadow-card">
+      <div
+        id={item.slug}
+        className="flex h-full scroll-mt-24 flex-col overflow-hidden rounded-2xl border border-ink-300/60 bg-white shadow-card"
+      >
         {item.image ? (
           <div className="relative aspect-[16/10] w-full overflow-hidden bg-surface-alt">
             <Image
@@ -165,7 +168,7 @@ function IndustryCard({ item, compact = false }: { item: Industry; compact?: boo
           </div>
         )}
         <div className="flex flex-1 flex-col p-6">
-          <span className="inline-flex w-fit items-center rounded-full bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+          <span className="inline-flex w-fit items-center rounded-full bg-accent/10 px-4 py-1.5 text-sm font-bold uppercase tracking-[0.14em] text-accent">
             {item.label}
           </span>
           <h3 className="mt-3 text-xl font-bold text-ink-900 md:text-[22px]">
@@ -195,25 +198,28 @@ function IndustryCard({ item, compact = false }: { item: Industry; compact?: boo
 
           {item.clientLogos ? (
             <div className="mt-6">
-              <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-ink-500">
-                Trusted by
-              </div>
-              <div className="mt-2 grid grid-cols-3 gap-2">
-                {item.clientLogos.slice(0, 3).map((logo) => (
-                  <div
-                    key={logo.src}
-                    className="relative grid h-10 place-items-center rounded-lg bg-surface-alt px-2"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      fill
-                      sizes="(min-width: 1024px) 120px, 28vw"
-                      className="object-contain p-1.5"
-                    />
-                  </div>
-                ))}
-              </div>
+              {item.slug === "insurance" ? (
+                <span className="inline-flex items-center rounded-full bg-secondary-soft px-3 py-1.5 text-sm font-bold text-ink-900">
+                  Trusted by 12+ companies
+                </span>
+              ) : (
+                <div className="grid grid-cols-3 gap-2">
+                  {item.clientLogos.slice(0, 3).map((logo) => (
+                    <div
+                      key={logo.src}
+                      className="relative grid h-10 place-items-center rounded-lg bg-surface-alt px-2"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        fill
+                        sizes="(min-width: 1024px) 120px, 28vw"
+                        className="object-contain p-1.5"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ) : null}
         </div>
@@ -240,7 +246,7 @@ function IndustryCard({ item, compact = false }: { item: Industry; compact?: boo
           </div>
         )}
         <div className="flex flex-col">
-          <span className="inline-flex w-fit items-center rounded-full bg-accent/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-accent">
+          <span className="inline-flex w-fit items-center rounded-full bg-accent/10 px-4 py-1.5 text-sm font-bold uppercase tracking-[0.14em] text-accent">
             {item.label}
           </span>
           <h3 className="mt-3 text-2xl font-bold text-ink-900 md:text-[28px]">
@@ -270,25 +276,28 @@ function IndustryCard({ item, compact = false }: { item: Industry; compact?: boo
 
           {item.clientLogos ? (
             <div className="mt-8">
-              <div className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-500">
-                Trusted by
-              </div>
-              <div className="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4">
-                {item.clientLogos.map((logo) => (
-                  <div
-                    key={logo.src}
-                    className="relative grid h-12 place-items-center rounded-lg bg-surface-alt px-2"
-                  >
-                    <Image
-                      src={logo.src}
-                      alt={logo.alt}
-                      fill
-                      sizes="(min-width: 768px) 140px, 28vw"
-                      className="object-contain p-1.5"
-                    />
-                  </div>
-                ))}
-              </div>
+              {item.slug === "insurance" ? (
+                <span className="inline-flex items-center rounded-full bg-secondary-soft px-4 py-2 text-base font-bold text-ink-900">
+                  Trusted by 12+ companies
+                </span>
+              ) : (
+                <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
+                  {item.clientLogos.map((logo) => (
+                    <div
+                      key={logo.src}
+                      className="relative grid h-12 place-items-center rounded-lg bg-surface-alt px-2"
+                    >
+                      <Image
+                        src={logo.src}
+                        alt={logo.alt}
+                        fill
+                        sizes="(min-width: 768px) 140px, 28vw"
+                        className="object-contain p-1.5"
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ) : null}
         </div>
