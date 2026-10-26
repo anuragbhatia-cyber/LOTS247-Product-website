@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { BookDemoButton } from "@/components/book-demo-button";
 
 export function FinalCta() {
@@ -21,9 +20,14 @@ export function FinalCta() {
                   <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </BookDemoButton>
-              <Link href="/contact" className="btn border border-white/40 bg-transparent text-white hover:bg-white/10">
-                Start for free
-              </Link>
+              <a
+                href="https://dashboard.lots247.in/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn border border-white/40 bg-transparent text-white hover:bg-white/10"
+              >
+                Login
+              </a>
             </div>
           </div>
           <div className="relative min-h-[320px] md:min-h-full">
