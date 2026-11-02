@@ -310,14 +310,19 @@ export function Solutions({ expanded = false }: { expanded?: boolean } = {}) {
   const [active, setActive] = useState(industries[0].slug);
   const listRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const [pill, setPill] = useState<{ left: number; width: number } | null>(null);
+  const [pill, setPill] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
   const [ready, setReady] = useState(false);
 
   useLayoutEffect(() => {
     const list = listRef.current;
     const btn = btnRefs.current[active];
     if (!list || !btn) return;
-    setPill({ left: btn.offsetLeft, width: btn.offsetWidth });
+    setPill({
+      left: btn.offsetLeft,
+      top: btn.offsetTop,
+      width: btn.offsetWidth,
+      height: btn.offsetHeight,
+    });
   }, [active]);
 
   useEffect(() => {
@@ -325,7 +330,13 @@ export function Solutions({ expanded = false }: { expanded?: boolean } = {}) {
     if (!list) return;
     const recalc = () => {
       const btn = btnRefs.current[active];
-      if (btn) setPill({ left: btn.offsetLeft, width: btn.offsetWidth });
+      if (btn)
+        setPill({
+          left: btn.offsetLeft,
+          top: btn.offsetTop,
+          width: btn.offsetWidth,
+          height: btn.offsetHeight,
+        });
     };
     const ro = new ResizeObserver(recalc);
     ro.observe(list);
@@ -354,18 +365,23 @@ export function Solutions({ expanded = false }: { expanded?: boolean } = {}) {
           </div>
         ) : (
           <>
-            <div className="mt-8 flex justify-center">
+            <div className="-mx-4 mt-8 overflow-x-auto px-4 pb-1 [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:flex md:justify-center md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden">
               <div
                 ref={listRef}
-                className="relative inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-full bg-ink-100 p-1"
+                className="relative inline-flex items-center gap-1 rounded-full bg-ink-100 p-1"
               >
                 {pill ? (
                   <span
                     aria-hidden="true"
-                    className={`absolute top-1 bottom-1 rounded-full bg-accent ${
-                      ready ? "transition-[left,width] duration-300 ease-out" : ""
+                    className={`absolute rounded-full bg-accent ${
+                      ready ? "transition-[left,top,width,height] duration-300 ease-out" : ""
                     }`}
-                    style={{ left: pill.left, width: pill.width }}
+                    style={{
+                      left: pill.left,
+                      top: pill.top,
+                      width: pill.width,
+                      height: pill.height,
+                    }}
                   />
                 ) : null}
                 {industries.map((i) => {
@@ -379,7 +395,7 @@ export function Solutions({ expanded = false }: { expanded?: boolean } = {}) {
                       type="button"
                       onClick={() => setActive(i.slug)}
                       aria-pressed={isActive}
-                      className={`relative z-10 rounded-full px-4 py-2.5 text-[14px] font-semibold transition-colors ${
+                      className={`relative z-10 whitespace-nowrap rounded-full px-4 py-2.5 text-[14px] font-semibold transition-colors ${
                         isActive ? "text-white" : "text-ink-700 hover:text-ink-900"
                       }`}
                     >

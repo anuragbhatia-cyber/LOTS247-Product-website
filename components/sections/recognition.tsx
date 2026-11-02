@@ -15,11 +15,11 @@ export function Recognition() {
           title="Building the future of legal infrastructure"
           sub="Recognized by leading innovation and startup ecosystems, and partnered with organizations across mobility, insurance, and technology."
         />
-        <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-14 grid grid-cols-2 gap-6 lg:grid-cols-4">
           {highlights.map((h) => (
             <div
               key={h}
-              className="rounded-2xl bg-surface-alt p-8 transition-all hover:-translate-y-0.5"
+              className="rounded-2xl bg-surface-alt p-5 transition-all hover:-translate-y-0.5 md:p-8"
             >
               <div className="grid h-10 w-10 place-items-center rounded-lg bg-brand text-white">
                 <span className="text-sm font-bold">★</span>

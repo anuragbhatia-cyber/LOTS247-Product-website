@@ -15,7 +15,7 @@ export function SupportedBy() {
         <p className="text-center text-sm font-semibold uppercase tracking-[0.2em] text-ink-500">
           Backed by
         </p>
-        <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-8 gap-y-8 sm:grid-cols-3 md:grid-cols-5">
+        <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-3 gap-y-3 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-6 md:grid-cols-5 md:gap-x-8 md:gap-y-8">
           {supporters.map((s) => (
             <div
               key={s.alt}

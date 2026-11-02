@@ -41,11 +41,7 @@ export function FinalCta() {
             />
             <div
               aria-hidden="true"
-              className="pointer-events-none absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(90deg, #0F172A 0%, rgba(15,23,42,0.85) 18%, rgba(15,23,42,0.35) 38%, rgba(15,23,42,0) 60%)",
-              }}
+              className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,#0F172A_0%,rgba(15,23,42,0.85)_18%,rgba(15,23,42,0.35)_38%,rgba(15,23,42,0)_60%)] md:bg-[linear-gradient(90deg,#0F172A_0%,rgba(15,23,42,0.85)_18%,rgba(15,23,42,0.35)_38%,rgba(15,23,42,0)_60%)]"
             />
           </div>
         </div>

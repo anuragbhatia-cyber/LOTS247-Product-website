@@ -11,14 +11,19 @@ export function Capabilities() {
   const [active, setActive] = useState(capabilities[0].slug);
   const listRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
-  const [pill, setPill] = useState<{ left: number; width: number } | null>(null);
+  const [pill, setPill] = useState<{ left: number; top: number; width: number; height: number } | null>(null);
   const [ready, setReady] = useState(false);
 
   useLayoutEffect(() => {
     const list = listRef.current;
     const btn = btnRefs.current[active];
     if (!list || !btn) return;
-    setPill({ left: btn.offsetLeft, width: btn.offsetWidth });
+    setPill({
+      left: btn.offsetLeft,
+      top: btn.offsetTop,
+      width: btn.offsetWidth,
+      height: btn.offsetHeight,
+    });
   }, [active]);
 
   useEffect(() => {
@@ -26,7 +31,14 @@ export function Capabilities() {
     if (!list) return;
     const recalc = () => {
       const btn = btnRefs.current[active];
-      if (btn) setPill({ left: btn.offsetLeft, width: btn.offsetWidth });
+      if (btn) {
+        setPill({
+          left: btn.offsetLeft,
+          top: btn.offsetTop,
+          width: btn.offsetWidth,
+          height: btn.offsetHeight,
+        });
+      }
     };
     const ro = new ResizeObserver(recalc);
     ro.observe(list);
@@ -53,20 +65,20 @@ export function Capabilities() {
 
         <div className="relative mt-8">
           <div
-            className="sticky z-30 flex justify-center transition-[top] duration-300 ease-out"
+            className="sticky z-30 -mx-6 overflow-x-auto px-6 pb-1 transition-[top] duration-300 ease-out [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:flex md:justify-center md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
             style={{ top: "var(--nav-offset, 80px)" }}
           >
             <div
               ref={listRef}
-              className="relative inline-flex max-w-full flex-wrap items-center justify-center gap-1 rounded-full border border-white/10 bg-ink-900/80 p-1 shadow-lg backdrop-blur"
+              className="relative inline-flex items-center gap-1 rounded-full border border-white/10 bg-ink-900/80 p-1 shadow-lg backdrop-blur"
             >
               {pill ? (
                 <span
                   aria-hidden="true"
-                  className={`absolute top-1 bottom-1 rounded-full bg-accent ${
-                    ready ? "transition-[left,width] duration-300 ease-out" : ""
+                  className={`absolute rounded-full bg-accent ${
+                    ready ? "transition-[left,top,width,height] duration-300 ease-out" : ""
                   }`}
-                  style={{ left: pill.left, width: pill.width }}
+                  style={{ left: pill.left, top: pill.top, width: pill.width, height: pill.height }}
                 />
               ) : null}
               {capabilities.map((c) => {
@@ -80,7 +92,7 @@ export function Capabilities() {
                     type="button"
                     onClick={() => setActive(c.slug)}
                     aria-pressed={isActive}
-                    className={`relative z-10 rounded-full px-3 py-2.5 text-[14px] font-semibold transition-colors ${
+                    className={`relative z-10 whitespace-nowrap rounded-full px-3 py-2.5 text-[14px] font-semibold transition-colors ${
                       isActive ? "text-white" : "text-white/75 hover:text-white"
                     }`}
                   >

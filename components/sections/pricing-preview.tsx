@@ -109,9 +109,6 @@ export function PricingPreview() {
                   className="h-10 w-auto object-contain"
                 />
               </div>
-              <p className="mt-4 text-[13px] font-medium text-ink-700">
-                For growing fleets &amp; SMEs
-              </p>
             </div>
 
             <div className="relative bg-secondary/[0.08] p-5 pt-8 pb-6 text-center">
@@ -131,9 +128,6 @@ export function PricingPreview() {
                   className="h-10 w-auto object-contain"
                 />
               </div>
-              <p className="mt-4 text-[13px] font-medium text-ink-700">
-                For large mobility organizations
-              </p>
             </div>
 
             {/* Feature rows */}
