@@ -44,7 +44,7 @@ export function ApisSection() {
   return (
     <section className="section relative overflow-hidden bg-ink-900 text-white">
       <div className="container-x relative grid gap-12 lg:grid-cols-2 lg:gap-28">
-        <div>
+        <div className="min-w-0">
           <h2 className="h2 text-white">
             Integrate legal infrastructure into your product
           </h2>
@@ -80,7 +80,7 @@ export function ApisSection() {
           </ul>
         </div>
 
-        <div className="relative flex items-center justify-center">
+        <div className="relative flex min-w-0 items-center justify-center">
           <div aria-hidden="true" className="integration-stream pointer-events-none">
             <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice" fill="none">
               <defs>

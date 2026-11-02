@@ -365,11 +365,11 @@ export function SiteNav() {
       >
         <div className="container-x max-h-[calc(100vh-72px)] overflow-y-auto py-6">
           <nav className="flex flex-col gap-1">
-            <MenuSection title="Solutions" href="/solutions" items={solutionsItems} />
+            <MenuSection title="Solutions" items={solutionsItems} />
             <MenuLink href="/platform" label="Platform" />
-            <MenuSection title="Industries" href="/industries" items={industriesItems} />
+            <MenuSection title="Industries" items={industriesItems} />
             <MenuSection title="APIs" items={apisItems} />
-            <MenuSection title="Resources" href="/resources" items={resourcesItems} />
+            <MenuSection title="Resources" items={resourcesItems} />
           </nav>
           <div className="mt-6 flex flex-col gap-3 border-t border-ink-300/40 pt-6">
             <a
@@ -422,11 +422,9 @@ function MenuLink({ href, label }: { href: string; label: string }) {
 
 function MenuSection({
   title,
-  href,
   items,
 }: {
   title: string;
-  href?: string;
   items: { href: string; label: string; external?: boolean }[];
 }) {
   const [open, setOpen] = useState(false);
@@ -464,14 +462,6 @@ function MenuSection({
       >
         <div className="min-h-0">
           <div className="flex flex-col pb-3">
-            {href ? (
-              <Link
-                href={href}
-                className="rounded-lg px-6 py-2 text-[15px] font-medium text-ink-700 transition-colors hover:bg-ink-100 hover:text-accent"
-              >
-                Overview
-              </Link>
-            ) : null}
             {items.map((item) =>
               item.external ? (
                 <a
