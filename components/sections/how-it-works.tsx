@@ -77,7 +77,7 @@ export function HowItWorks() {
               const isLast = i === steps.length - 1;
               return (
                 <Fragment key={s.title}>
-                  <div className="flex flex-col items-center pt-2">
+                  <div className="flex flex-col items-center pt-1 md:pt-2">
                     <span
                       className={`grid h-10 w-10 shrink-0 place-items-center rounded-full text-[15px] font-bold transition-colors ${
                         isActive || isDone
@@ -88,7 +88,7 @@ export function HowItWorks() {
                       {i + 1}
                     </span>
                     {!isLast ? (
-                      <div className="relative mt-2 w-[3px] flex-1 min-h-[36px] rounded-full bg-accent/25">
+                      <div className="relative mt-1 w-[3px] flex-1 min-h-[12px] rounded-full bg-accent/25 md:mt-2 md:min-h-[36px]">
                         <div
                           className={`absolute inset-x-0 top-0 rounded-full bg-accent transition-all duration-500 ease-out ${
                             isActive || isDone ? "h-full" : "h-0"
@@ -97,12 +97,12 @@ export function HowItWorks() {
                       </div>
                     ) : null}
                   </div>
-                  <li className="pb-0 pt-2">
+                  <li className="pb-0 pt-1 md:pt-2">
                     <button
                       type="button"
                       onClick={() => setActive(i)}
                       aria-pressed={isActive}
-                      className={`group w-full rounded-2xl px-5 py-2.5 text-left transition-colors ${
+                      className={`group w-full rounded-2xl px-5 py-1.5 text-left transition-colors md:py-2.5 ${
                         isActive ? "bg-surface-alt" : "hover:bg-surface-alt/60"
                       }`}
                     >
