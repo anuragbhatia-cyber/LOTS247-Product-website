@@ -256,7 +256,7 @@ const faqs = [
 export default function BSafePage() {
   return (
     <main>
-      <section className="relative overflow-hidden bg-ink-900 pt-20 pb-24 text-white md:pt-24 md:pb-28">
+      <section className="relative overflow-hidden bg-ink-900 pt-14 pb-16 text-white md:pt-16 md:pb-20">
         <div className="container-x relative">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="h1 text-white">LOTS247 BSafe</h1>

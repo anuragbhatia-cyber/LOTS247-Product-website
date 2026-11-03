@@ -7,6 +7,7 @@ import { Logo } from "@/components/logo";
 import { BookDemoButton } from "@/components/book-demo-button";
 
 const solutionsItems = [
+  { href: "/solutions/care", label: "Care" },
   { href: "https://lots247.in/", label: "Sarathi", external: true },
   { href: "/solutions/vcare", label: "VCare" },
   { href: "/solutions/bsafe", label: "BSafe" },
@@ -320,13 +321,30 @@ export function SiteNav() {
           >
             Login
           </a>
+          <BookDemoButton className="btn-primary hidden items-center justify-center gap-2 md:inline-flex">
+            Book a demo
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              aria-hidden="true"
+              className="h-4 w-4"
+            >
+              <path
+                d="M4 10h12m0 0l-4-4m4 4l-4 4"
+                stroke="currentColor"
+                strokeWidth="1.75"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </BookDemoButton>
           <button
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
             aria-expanded={menuOpen}
             aria-controls="site-mobile-menu"
             onClick={() => setMenuOpen((o) => !o)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-ink-300/60 bg-white text-ink-900 transition-colors hover:bg-ink-100 hover:text-accent"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-ink-300/60 bg-white text-ink-900 transition-colors hover:bg-ink-100 hover:text-accent md:hidden"
           >
             <svg
               viewBox="0 0 24 24"

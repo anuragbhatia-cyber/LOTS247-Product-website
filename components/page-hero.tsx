@@ -56,7 +56,7 @@ export function PageHero({
   secondaryCta?: { label: string; href: string };
 }) {
   return (
-    <section className="relative overflow-hidden bg-surface-alt pt-16 pb-20 md:pt-20 md:pb-24">
+    <section className="relative overflow-hidden bg-surface-alt pt-10 pb-12 md:pt-14 md:pb-16">
       <div
         className="pointer-events-none absolute inset-0 -z-10 opacity-70"
         style={{
