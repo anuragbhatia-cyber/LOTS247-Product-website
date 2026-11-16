@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import { BookDemoButton } from "@/components/book-demo-button";
 
@@ -49,7 +50,11 @@ const steps = [
 
 const AUTOPLAY_MS = 5000;
 
-export function HowItWorks() {
+export function HowItWorks({
+  cta,
+}: {
+  cta?: { label: string; href: string };
+} = {}) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -121,23 +126,46 @@ export function HowItWorks() {
             </ol>
 
             <div className="mt-16 pl-[60px]">
-              <BookDemoButton className="btn-primary flex w-full max-w-sm items-center justify-center gap-2">
-                Book a demo
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                  className="h-4 w-4"
+              {cta ? (
+                <Link
+                  href={cta.href}
+                  className="btn-primary flex w-full max-w-sm items-center justify-center gap-2"
                 >
-                  <path
-                    d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </BookDemoButton>
+                  {cta.label}
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      d="M4 10h12m0 0l-4-4m4 4l-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              ) : (
+                <BookDemoButton className="btn-primary flex w-full max-w-sm items-center justify-center gap-2">
+                  Book a demo
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      d="M4 10h12m0 0l-4-4m4 4l-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </BookDemoButton>
+              )}
             </div>
           </div>
 

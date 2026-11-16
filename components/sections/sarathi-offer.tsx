@@ -29,18 +29,9 @@ export function SarathiOffer() {
               Sarathi Vehicle Plan
             </div>
 
-            <div className="mt-6 flex items-center gap-3">
-              <span className="text-2xl font-semibold text-white/40 line-through">
-                ₹1,999
-              </span>
-              <span className="rounded-full bg-accent/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-accent">
-                50% off
-              </span>
-            </div>
-
-            <div className="mt-3 flex flex-wrap items-baseline gap-3">
+            <div className="mt-6 flex flex-wrap items-baseline gap-3">
               <span className="text-[72px] font-bold leading-none tracking-tight text-white md:text-[88px]">
-                ₹999
+                ₹1,999
               </span>
               <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-white/70">
                 Per Vehicle / Year
@@ -48,7 +39,7 @@ export function SarathiOffer() {
             </div>
 
             <p className="mt-6 max-w-md text-[15px] leading-[1.7] text-white/75">
-              ₹999 mein legal support, accident insurance aur wallet top up ka benefit.
+              ₹1,999 mein legal support, accident insurance aur wallet top up ka benefit.
             </p>
 
             <Link
