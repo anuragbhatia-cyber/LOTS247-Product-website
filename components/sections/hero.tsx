@@ -2,7 +2,7 @@ import Image from "next/image";
 import { BookDemoButton } from "@/components/book-demo-button";
 
 const slide = {
-  headingTop: "India's First On-Road",
+  headingTop: "India's First Roadside",
   headingBottom: "Legal Assistance",
   sub: "24×7 roadside legal assistance, compliance automation, challan management, and legal operations — all on a single platform built for fleets, mobility companies, and vehicle owners.",
   primaryCta: { label: "Book a demo", href: "/contact" },

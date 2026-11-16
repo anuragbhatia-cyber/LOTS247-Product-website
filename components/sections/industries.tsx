@@ -45,7 +45,7 @@ export function Industries() {
             <p className="mt-6 max-w-md text-lg leading-[1.6] text-white/70">
               From nationwide logistics fleets to last-mile mobility platforms,
               LOTS247 supports the operators, OEMs, and insurers who keep India
-              moving — with legal, compliance, and on-road assistance built in.
+              moving — with legal, compliance, and roadside assistance built in.
             </p>
           </div>
 

@@ -9,7 +9,7 @@ export const capabilities: Capability[] = [
   {
     slug: "driver-insurance",
     title: "Driver Insurance",
-    desc: "Protect drivers with comprehensive insurance coverage for accidents, injuries, and on-road incidents, backed by fast claims and 24×7 support.",
+    desc: "Protect drivers with comprehensive insurance coverage for accidents, injuries, and roadside incidents, backed by fast claims and 24×7 support.",
     image: {
       src: "/capability-driver-insurance.png",
       width: 2880,

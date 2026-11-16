@@ -18,7 +18,7 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "LOTS247 — India's First On-Road Legal Assistance Platform",
+  title: "LOTS247 — India's First Roadside Legal Assistance Platform",
   description:
     "24×7 roadside legal assistance, compliance automation, challan management, and legal operations — all on a single platform built for fleets, mobility companies, and vehicle owners.",
 };

@@ -1,38 +1,19 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { BookDemoButton } from "@/components/book-demo-button";
 import { FinalCta } from "@/components/sections/final-cta";
-import { SectionHeader } from "@/components/ui";
+import { HowItWorks } from "@/components/sections/how-it-works";
 
 export const metadata: Metadata = {
   title: "Care — Vehicle Legal Assistance for Private Owners | LOTS247",
   description:
-    "LOTS Care by LOTS247 is a vehicle legal assistance plan for private vehicle owners — 24×7 on-call resolution, challan-as-a-service, dashboard access, and WhatsApp incident updates for one vehicle at ₹999 for six months.",
+    "LOTS247 Care is a vehicle legal assistance plan for private vehicle owners — 24×7 on-call resolution, challan-as-a-service, dashboard access, and WhatsApp incident updates for one vehicle at ₹999 for six months.",
 };
-
-const includedInPlan = [
-  "Coverage for 1 Vehicle",
-  "24×7 On-Call Resolution",
-  "Challan-as-a-Service",
-  "Dashboard Access",
-  "WhatsApp Incident Updates",
-];
-
-const additionalServices = [
-  { service: "Online Challan Resolution", offering: "₹200" },
-  { service: "Express Challan Resolution", offering: "₹3,000" },
-  { service: "Court Challan Resolution", offering: "₹2,000" },
-  { service: "On-Site Legal Resolution", offering: "Pay Per Use" },
-  { service: "RTO-as-a-Service", offering: "Pay Per Use" },
-  { service: "Add-On Services", offering: "Pay Per Use" },
-  { service: "Value-Added Services (VAS)", offering: "Pay Per Use" },
-];
 
 const features = [
   {
     title: "Coverage for 1 Vehicle",
-    desc: "Each LOTS Care subscription covers one vehicle, built around the needs of individual private vehicle owners.",
+    desc: "Each LOTS247 Care subscription covers one vehicle, built around the needs of individual private vehicle owners.",
     icon: "truck",
   },
   {
@@ -93,24 +74,31 @@ const iconPaths: Record<string, string> = {
   cert: "M12 3l3 2 3-.5 1 3 2 2-2 2-1 3-3-.5-3 2-3-2-3 .5-1-3-2-2 2-2 1-3 3 .5zM9 12l2 2 4-4",
   dash: "M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z",
   chat: "M4 6a2 2 0 012-2h12a2 2 0 012 2v9a2 2 0 01-2 2h-7l-5 4v-4H6a2 2 0 01-2-2z",
+  shield: "M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6zM9 12l2 2 4-4",
+  clock: "M12 21a9 9 0 100-18 9 9 0 000 18zM12 7v5l3 2",
+  user: "M12 12a4 4 0 100-8 4 4 0 000 8zM4 21a8 8 0 0116 0",
+  bolt: "M13 2L4 14h7l-1 8 9-12h-7z",
+  headset:
+    "M4 14v-2a8 8 0 0116 0v2M4 14a2 2 0 012-2h1v6H6a2 2 0 01-2-2zM20 14a2 2 0 00-2-2h-1v6h1a2 2 0 002-2zM17 18c0 1.7-2 3-5 3",
+  rupee: "M7 4h10M7 9h10M7 4c5 0 6 2.5 6 5s-2 5-6 5l7 6",
 };
 
 const problems = [
   {
     title: "Unexpected Roadside Situations",
-    desc: "Police checking, challans, or roadside disputes can disrupt a regular day without quick access to the right guidance.",
+    desc: "Police checks and roadside disputes need quick legal guidance.",
   },
   {
     title: "Hard-to-Track Challans",
-    desc: "Private vehicle owners often discover challans late, with little clarity on how to resolve them efficiently.",
+    desc: "Challans are often found late, with no clear way to resolve them.",
   },
   {
     title: "Scattered Resolution Options",
-    desc: "Online, Lok Adalat, and court routes each have their own process, which can be hard to navigate alone.",
+    desc: "Online, Lok Adalat and court routes are hard to navigate alone.",
   },
   {
     title: "No Single Place to Track Services",
-    desc: "Updates and service requests often get lost across calls, messages, and emails.",
+    desc: "Updates get lost across calls, messages and emails.",
   },
 ];
 
@@ -159,20 +147,20 @@ const summary = [
 
 const faqs = [
   {
-    q: "What is LOTS Care?",
-    a: "LOTS Care is a six-month roadside legal assistance subscription for private vehicle owners. It provides 24×7 on-call legal assistance, challan-related services, dashboard access, and incident updates via WhatsApp.",
+    q: "What is LOTS247 Care?",
+    a: "LOTS247 Care is a six-month roadside legal assistance subscription for private vehicle owners. It provides 24×7 on-call legal assistance, challan-related services, dashboard access, and incident updates via WhatsApp.",
   },
   {
-    q: "What is the price of LOTS Care?",
-    a: "LOTS Care is available at ₹999 per vehicle for six months.",
+    q: "What is the price of LOTS247 Care?",
+    a: "LOTS247 Care is available at ₹999 per vehicle for six months.",
   },
   {
     q: "How many vehicles are covered under the subscription?",
-    a: "Each LOTS Care subscription covers one private vehicle.",
+    a: "Each LOTS247 Care subscription covers one private vehicle.",
   },
   {
-    q: "Does LOTS Care provide 24×7 legal assistance?",
-    a: "Yes. LOTS Care includes 24×7 on-call legal assistance for vehicle-related roadside legal issues.",
+    q: "Does LOTS247 Care provide 24×7 legal assistance?",
+    a: "Yes. LOTS247 Care includes 24×7 on-call legal assistance for vehicle-related roadside legal issues.",
   },
   {
     q: "Is on-site legal assistance included in the subscription?",
@@ -180,337 +168,456 @@ const faqs = [
   },
   {
     q: "Can I get assistance with my vehicle challans?",
-    a: "Yes. LOTS Care includes Challan-as-a-Service, with assistance available for eligible online, Lok Adalat, court, and express challan resolution options.",
+    a: "Yes. LOTS247 Care includes Challan-as-a-Service, with assistance available for eligible online, Lok Adalat, court, and express challan resolution options.",
   },
   {
     q: "What are the challan resolution charges?",
     a: "The applicable service charges are: Online Challan Resolution — ₹200, Lok Adalat Resolution — ₹1,000, Court Challan Resolution — ₹2,000, and Express Challan Resolution — ₹3,000. Resolution is subject to eligibility and applicable service conditions.",
   },
   {
-    q: "Does LOTS Care provide RTO assistance?",
+    q: "Does LOTS247 Care provide RTO assistance?",
     a: "Yes. RTO-as-a-Service is available on a pay-per-use basis for applicable vehicle-related requirements.",
   },
   {
-    q: "Does LOTS Care include dashboard access?",
-    a: "Yes. Dashboard access is included in the LOTS Care subscription.",
+    q: "Does LOTS247 Care include dashboard access?",
+    a: "Yes. Dashboard access is included in the LOTS247 Care subscription.",
   },
   {
     q: "Will I receive updates about my incident?",
-    a: "Yes. LOTS Care includes incident updates through WhatsApp.",
+    a: "Yes. LOTS247 Care includes incident updates through WhatsApp.",
   },
   {
     q: "Are automated and personalized reports included?",
-    a: "No. Automated reports and personalized reports are not included in the LOTS Care subscription.",
+    a: "No. Automated reports and personalized reports are not included in the LOTS247 Care subscription.",
   },
   {
     q: "Is a Dedicated Account Manager included?",
-    a: "No. Dedicated Account Manager support is not included in the LOTS Care plan.",
+    a: "No. Dedicated Account Manager support is not included in the LOTS247 Care plan.",
   },
   {
     q: "Can I access additional services?",
     a: "Yes. On-site legal assistance, RTO services, add-on services, and value-added services are available on a pay-per-use basis.",
   },
   {
-    q: "Who should subscribe to LOTS Care?",
-    a: "LOTS Care is ideal for private car owners, daily commuters, families, and frequent travellers who want access to legal assistance and challan resolution support for their vehicle.",
+    q: "Who should subscribe to LOTS247 Care?",
+    a: "LOTS247 Care is ideal for private car owners, daily commuters, families, and frequent travellers who want access to legal assistance and challan resolution support for their vehicle.",
   },
 ];
 
+const heroBadges = [
+  { label: "24×7 On-Call", icon: "phone", className: "left-[16%] top-[30%]" },
+  { label: "Challan-as-a-Service", icon: "doc", className: "left-[38%] top-[16%]" },
+  { label: "Dashboard Access", icon: "dash", className: "left-[60%] top-[12%]" },
+  { label: "WhatsApp Updates", icon: "chat", className: "left-[82%] top-[18%]" },
+];
+
+const networkStats = [
+  { value: "80,000+", label: "Lawyers" },
+  { value: "98%", label: "PIN Codes Covered" },
+  { value: "24×7", label: "Support" },
+];
+
+const planHighlights = [
+  { label: "Complete Vehicle Coverage", icon: "shield" },
+  { label: "Fast Resolution", icon: "bolt" },
+  { label: "Expert Support", icon: "headset" },
+];
+
+const benefitIcons = ["user", "phone", "doc", "rupee", "chat", "shield"];
+
+function Icon({ name, className = "h-6 w-6" }: { name: string; className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d={iconPaths[name]} />
+    </svg>
+  );
+}
+
+function Check({ filled = false, large = false }: { filled?: boolean; large?: boolean }) {
+  return (
+    <span
+      className={`grid flex-shrink-0 place-items-center rounded-full ${
+        large ? "h-6 w-6" : "mt-0.5 h-5 w-5"
+      } ${filled ? "bg-accent text-white" : "bg-accent/15 text-accent"}`}
+    >
+      <svg
+        viewBox="0 0 20 20"
+        fill="none"
+        className={large ? "h-3.5 w-3.5" : "h-3 w-3"}
+        aria-hidden="true"
+      >
+        <path
+          d="M4 10l4 4 8-8"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </span>
+  );
+}
+
+function Arrow() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" aria-hidden="true" className="h-4 w-4">
+      <path
+        d="M4 10h12m0 0l-4-4m4 4l-4 4"
+        stroke="currentColor"
+        strokeWidth="1.75"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+function Heading({
+  title,
+  sub,
+  dark = false,
+}: {
+  title: string;
+  sub?: string;
+  dark?: boolean;
+}) {
+  return (
+    <div className="mx-auto max-w-3xl text-center">
+      <h2
+        className={`text-2xl font-bold tracking-[-0.01em] md:text-[34px] md:leading-[1.2] ${
+          dark ? "text-white" : "text-ink-900"
+        }`}
+      >
+        {title}
+      </h2>
+      {sub ? (
+        <p className={`mt-3 text-[15px] ${dark ? "text-white/70" : "text-ink-700"}`}>
+          {sub}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 export default function CarePage() {
   return (
-    <main>
-      <section className="relative overflow-hidden bg-ink-900 pt-14 pb-16 text-white md:pt-16 md:pb-20">
+    <main className="bg-white">
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-[linear-gradient(180deg,#DCEBFA_0%,#EEF5FC_60%,#FFFFFF_100%)] pt-10 pb-16 md:pt-12 lg:min-h-[520px] lg:pb-16">
+        <div className="absolute inset-y-0 right-0 hidden w-[56%] lg:block">
+          <div
+            className="absolute inset-0"
+            style={{
+              maskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 25%, #000 45%), linear-gradient(0deg, transparent 0%, #000 18%)",
+              maskComposite: "intersect",
+              WebkitMaskImage:
+                "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.6) 25%, #000 45%), linear-gradient(0deg, transparent 0%, #000 18%)",
+              WebkitMaskComposite: "source-in",
+            }}
+          >
+            <Image
+              src="/care-hero-sedan.png"
+              alt="White sedan driving on a city highway"
+              fill
+              priority
+              sizes="56vw"
+              className="object-cover object-[80%_100%]"
+            />
+          </div>
+          {heroBadges.map((b) => (
+            <div
+              key={b.label}
+              className={`absolute flex -translate-x-1/2 flex-col items-center gap-1.5 ${b.className}`}
+            >
+              <span className="grid h-14 w-14 place-items-center rounded-full bg-white text-accent shadow-[0_10px_24px_-8px_rgba(15,23,42,0.3)]">
+                <Icon name={b.icon} />
+              </span>
+              <span className="whitespace-nowrap rounded-full bg-white/90 px-3.5 py-1.5 text-[13px] font-bold text-ink-900 shadow-sm backdrop-blur">
+                {b.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
         <div className="container-x relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="h1 text-white">LOTS Care</h1>
-            <p className="mt-6 text-[15px] leading-relaxed text-white/70">
-              A vehicle legal assistance plan built for private vehicle owners —
-              24×7 on-call resolution, challan-as-a-service, dashboard access,
-              and WhatsApp incident updates for one vehicle at ₹999 for six
-              months.
+          <div className="max-w-xl">
+            <Image
+              src="/logo-care.png"
+              alt="LOTS247 Care"
+              width={360}
+              height={110}
+              className="-ml-3 h-14 w-auto object-contain md:h-16"
+              priority
+            />
+            <h1 className="mt-6 text-4xl font-extrabold leading-[1.08] tracking-[-0.02em] text-ink-900 md:text-5xl lg:whitespace-nowrap lg:text-[56px]">
+              LOTS247 <span className="text-accent">RoadCare</span>
+            </h1>
+            <p className="mt-6 max-w-[540px] text-[16px] leading-relaxed text-ink-900">
+              24×7 on-call legal help, challan resolution, dashboard access and
+              WhatsApp updates for your vehicle — ₹999 for six months.
             </p>
-            <div className="mt-8 flex justify-center">
+            <div className="mt-8">
               <Link
                 href="/contact"
-                className="btn-primary inline-flex items-center justify-center gap-2 px-10"
+                className="btn-primary min-w-[240px] rounded-full px-12 shadow-[0_8px_20px_-6px_rgba(44,183,125,0.55)]"
               >
-                Contact Sales
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                  className="h-4 w-4"
-                >
-                  <path
-                    d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                Register Now
+                <Arrow />
               </Link>
             </div>
+            <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-[14px] font-semibold text-ink-900">
+              <span className="inline-flex items-center gap-2">
+                <span className="text-accent">
+                  <Icon name="shield" className="h-5 w-5" />
+                </span>
+                Coverage for 1 Vehicle
+              </span>
+              <span aria-hidden="true" className="hidden h-4 w-px bg-ink-300 sm:block" />
+              <span className="inline-flex items-center gap-2">
+                <span className="text-secondary">
+                  <Icon name="clock" className="h-5 w-5" />
+                </span>
+                ₹999 per Vehicle / 6 Months
+              </span>
+            </div>
+          </div>
+
+          <div className="relative mt-12 aspect-[2/1] overflow-hidden rounded-3xl shadow-[0_24px_50px_-20px_rgba(15,23,42,0.35)] lg:hidden">
+            <Image
+              src="/care-hero-sedan.png"
+              alt="White sedan driving on a city highway"
+              fill
+              sizes="100vw"
+              className="object-cover object-[70%_100%]"
+            />
           </div>
         </div>
       </section>
 
-      <section className="section bg-white">
+      {/* Network stats */}
+      <section className="pt-16 pb-4 md:pt-20">
         <div className="container-x">
-          <SectionHeader title="LOTS Care Plan" />
-
-          <div className="mx-auto mt-14 max-w-5xl">
-            <div className="grid gap-8 rounded-3xl border border-ink-300/60 bg-white p-8 shadow-card md:p-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)] lg:gap-12">
-              <div>
-                <Image
-                  src="/logo-care.png"
-                  alt="LOTS Care"
-                  width={360}
-                  height={110}
-                  className="-ml-4 h-20 w-auto object-contain md:-ml-5 md:h-24"
-                  priority
-                />
-                <div className="mt-6 text-xs font-semibold uppercase tracking-[0.15em] text-ink-500">
-                  Six-Month Plan
-                </div>
-                <div className="mt-4 flex items-baseline gap-2">
-                  <span className="text-5xl font-bold text-ink-900 md:text-6xl">
-                    ₹999
-                  </span>
-                </div>
-                <p className="mt-2 text-sm text-ink-700">
-                  per Vehicle / 6 Months
-                </p>
-                <div className="mt-8 flex flex-wrap gap-3">
-                  <BookDemoButton className="btn-primary">
-                    Book a demo
-                  </BookDemoButton>
-                </div>
-              </div>
-
-              <div>
-                <div className="text-xs font-semibold uppercase tracking-[0.15em] text-ink-500">
-                  What&rsquo;s Included
-                </div>
-                <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-                  {includedInPlan.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-3 text-[14px] text-ink-900"
-                    >
-                      <span className="mt-1 grid h-4 w-4 flex-shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
-                        <svg
-                          viewBox="0 0 20 20"
-                          fill="none"
-                          className="h-2.5 w-2.5"
-                          aria-hidden="true"
-                        >
-                          <path
-                            d="M4 10l4 4 8-8"
-                            stroke="currentColor"
-                            strokeWidth="3"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          />
-                        </svg>
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="mt-10">
-              <h3 className="text-xl font-bold text-ink-900">
-                Services Charged Per Use
-              </h3>
-              <div className="mt-6 overflow-hidden rounded-2xl border border-ink-300/60">
-                <table className="w-full text-left">
-                  <thead className="bg-surface-alt">
-                    <tr>
-                      <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-700">
-                        Service
-                      </th>
-                      <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wider text-ink-700">
-                        Price
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {additionalServices.map((row) => (
-                      <tr
-                        key={row.service}
-                        className="border-t border-ink-300/60"
-                      >
-                        <td className="px-5 py-4 text-sm font-semibold text-ink-900">
-                          {row.service}
-                        </td>
-                        <td className="px-5 py-4 text-sm text-ink-700">
-                          {row.offering}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <p className="mt-4 text-xs text-ink-500">
-                Additional services are charged separately as applicable.
-                Resolution services are subject to eligibility and applicable
-                service conditions.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-surface-alt">
-        <div className="container-x">
-          <SectionHeader title="Everything You Need for Vehicle Legal Assistance" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((f) => (
+          <h2 className="text-center text-2xl font-bold normal-case tracking-[-0.01em] text-ink-900 md:text-[34px] md:leading-[1.2]">
+            LOTS247 ka trusted legal support network
+          </h2>
+          <div className="mx-auto mt-12 grid max-w-5xl gap-y-10 sm:grid-cols-3">
+            {networkStats.map((stat, i) => (
               <div
-                key={f.title}
-                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
+                key={stat.label}
+                className={`px-6 text-center lg:px-10 ${
+                  i > 0 ? "sm:border-l sm:border-ink-300/70" : ""
+                }`}
               >
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/10 text-accent">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="h-6 w-6"
-                  >
-                    <path d={iconPaths[f.icon]} />
-                  </svg>
+                <div className="text-4xl font-bold tracking-[-0.02em] text-accent md:text-5xl">
+                  {stat.value}
                 </div>
-                <div className="mt-4 text-[15px] font-semibold text-ink-900">
-                  {f.title}
+                <div className="mt-3 font-mono text-[12px] uppercase tracking-[0.2em] text-ink-700 md:text-[13px]">
+                  {stat.label}
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                  {f.desc}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="section bg-white">
+      {/* Why owners need it — banner */}
+      <section className="py-16">
         <div className="container-x">
-          <SectionHeader title="Why Private Vehicle Owners Need LOTS Care" />
-          <div className="mt-14 grid gap-8 lg:grid-cols-[minmax(0,2fr)_minmax(0,1fr)] lg:gap-10">
-            <div className="grid gap-6 sm:grid-cols-2">
-              {problems.map((p) => (
-                <div
-                  key={p.title}
-                  className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
-                >
-                  <div className="text-lg font-semibold text-ink-900 md:text-xl">
-                    {p.title}
-                  </div>
-                  <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                    {p.desc}
-                  </p>
-                </div>
-              ))}
+          <div className="grid items-center gap-10 overflow-hidden rounded-3xl bg-[#0F172A] p-8 md:p-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12">
+            <div>
+              <h2 className="text-2xl font-bold leading-[1.2] tracking-[-0.01em] text-white md:text-[34px]">
+                Why Private Vehicle Owners Need LOTS247 Care
+              </h2>
+              <ul className="mt-8 grid gap-5 sm:grid-cols-2">
+                {problems.map((p) => (
+                  <li key={p.title}>
+                    <div className="flex items-start gap-2.5 text-[15px] font-semibold text-white">
+                      <Check filled />
+                      {p.title}
+                    </div>
+                    <p className="mt-1.5 pl-[30px] text-sm leading-snug text-white/70">
+                      {p.desc}
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-8">
+                <Link href="/contact" className="btn-primary rounded-full px-7">
+                  Register Now
+                  <Arrow />
+                </Link>
+              </div>
             </div>
-            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl lg:aspect-auto lg:min-h-[460px]">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_24px_50px_-20px_rgba(0,0,0,0.6)] lg:aspect-[5/4] lg:-rotate-1">
               <Image
-                src="/care-highway-sunset.png"
-                alt="Private vehicle driving on a highway at sunset"
+                src="/care-roadside-breakdown.png"
+                alt="Driver checking his phone beside a broken-down car on a highway at sunset"
                 fill
-                sizes="(min-width: 1024px) 33vw, 100vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                className="object-cover object-[60%_center]"
               />
             </div>
           </div>
         </div>
       </section>
 
-      <section className="section bg-surface-alt">
+      <HowItWorks cta={{ label: "Register Now", href: "/contact" }} />
+
+      {/* Features */}
+      <section className="bg-surface-alt py-20 md:py-24">
         <div className="container-x">
-          <SectionHeader title="Why Choose LOTS Care?" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((b) => (
+          <Heading title="Everything You Need for Vehicle Legal Assistance" />
+          <div className="mx-auto mt-12 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f) => (
               <div
-                key={b.title}
-                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
+                key={f.title}
+                className="flex gap-4 rounded-2xl border border-ink-300/50 bg-white p-6 shadow-card transition-shadow hover:shadow-[0_12px_30px_-12px_rgba(15,23,42,0.18)]"
               >
-                <div className="text-[15px] font-semibold text-ink-900">
-                  {b.title}
+                <span className="grid h-12 w-12 flex-shrink-0 place-items-center rounded-full bg-accent-soft text-accent">
+                  <Icon name={f.icon} />
+                </span>
+                <div>
+                  <div className="text-[17px] font-bold text-ink-900">{f.title}</div>
+                  <p className="mt-1.5 text-sm leading-snug text-ink-700">{f.desc}</p>
                 </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                  {b.desc}
-                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-accent py-10 md:py-12">
+      {/* Plan + pricing */}
+      <section className="py-16">
         <div className="container-x">
-          <SectionHeader title="What Do You Get with LOTS Care?" dark />
-          <div className="mx-auto mt-10 max-w-5xl rounded-3xl border border-ink-300/60 bg-white p-8 shadow-card md:p-12">
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-              {summary.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 text-[14px] font-medium text-ink-900"
-                >
-                  <span className="mt-1 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-accent text-white">
-                    <svg
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      className="h-3 w-3"
-                      aria-hidden="true"
-                    >
-                      <path
-                        d="M4 10l4 4 8-8"
-                        stroke="currentColor"
-                        strokeWidth="3.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
+          <Heading title="LOTS247 RoadCare Plan" />
+          <div className="mx-auto mt-14 grid max-w-6xl items-start gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
+            <div className="relative flex flex-col rounded-3xl border border-accent/40 bg-[linear-gradient(160deg,#FFFFFF_0%,#F1FAF5_55%,#E6F6EE_100%)] p-6 shadow-[0_24px_50px_-24px_rgba(44,183,125,0.45)] md:p-7">
+              <span className="absolute -top-3.5 left-6 rounded-full bg-accent px-4 py-1.5 text-xs font-bold text-white shadow-[0_6px_14px_-4px_rgba(44,183,125,0.6)] md:left-7">
+                Six-Month Plan
+              </span>
+
+              <div className="relative grid grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] items-center gap-2 pt-3">
+                <div>
+                  <div className="text-lg font-bold text-ink-900">LOTS247 RoadCare</div>
+                  <div className="mt-3 text-5xl font-extrabold tracking-[-0.02em] text-ink-900">
+                    ₹999
+                  </div>
+                  <p className="mt-2 text-base font-bold text-ink-700">per Vehicle / 6 Months</p>
+                </div>
+                <div className="relative aspect-[3/2] w-full">
+                  <Image
+                    src="/care-plan-suv-orange-shield.png"
+                    alt="White SUV protected by an orange shield with a check mark"
+                    fill
+                    sizes="(min-width: 1024px) 260px, 50vw"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              <div className="mt-6 grid grid-cols-3 divide-x divide-ink-300/60 rounded-2xl bg-white/80 py-4 shadow-card">
+                {planHighlights.map((h) => (
+                  <div key={h.label} className="flex flex-col items-center gap-2 px-2 text-center">
+                    <span className="text-accent">
+                      <Icon name={h.icon} className="h-6 w-6" />
+                    </span>
+                    <span className="text-[13px] font-semibold leading-snug text-ink-900">
+                      {h.label}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href="/contact"
+                className="btn-primary mt-6 w-full shadow-[0_10px_24px_-10px_rgba(44,183,125,0.7)]"
+              >
+                Register Now
+                <Arrow />
+              </Link>
+            </div>
+
+            <div className="flex flex-col rounded-2xl border border-ink-300/60 bg-ink-100 p-7 md:p-8">
+              <div className="text-lg font-bold text-ink-900">
+                What Do You Get with LOTS247 Care?
+              </div>
+              <ul className="mt-7 grid gap-x-6 gap-y-6 sm:grid-cols-2">
+                {summary.map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900"
+                  >
+                    <Check filled large />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="section bg-surface-alt" id="faq">
+      {/* Why choose */}
+      <section className="bg-[#0F172A] py-20 md:py-24">
         <div className="container-x">
-          <SectionHeader title="Frequently Asked Questions" />
-          <div className="mx-auto mt-14 max-w-3xl divide-y divide-ink-300/60 rounded-2xl border border-ink-300/60 bg-white">
+          <Heading title="Why Choose LOTS247 Care?" dark />
+          <div className="mx-auto mt-12 grid max-w-6xl gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+            {benefits.map((b, i) => (
+              <div
+                key={b.title}
+                className={`flex flex-col items-center px-6 text-center ${
+                  i % 3 !== 0 ? "lg:border-l lg:border-white/15" : ""
+                }`}
+              >
+                <span className="grid h-16 w-16 place-items-center rounded-full bg-accent/15 text-accent">
+                  <Icon name={benefitIcons[i]} className="h-7 w-7" />
+                </span>
+                <div className="mt-4 text-[15px] font-semibold text-white">{b.title}</div>
+                <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/70">{b.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-16" id="faq">
+        <div className="container-x">
+          <Heading title="Frequently Asked Questions" />
+          <div className="mx-auto mt-10 max-w-4xl space-y-3">
             {faqs.map((f) => (
-              <details key={f.q} className="group px-6 py-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 text-[15px] font-semibold text-ink-900">
+              <details
+                key={f.q}
+                className="group rounded-xl border border-ink-300/60 bg-white px-6 py-4 shadow-card"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-ink-900 [&::-webkit-details-marker]:hidden">
                   {f.q}
-                  <span
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
                     aria-hidden="true"
-                    className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-ink-300 text-ink-700 transition-transform group-open:rotate-45"
+                    className="h-4 w-4 shrink-0 text-ink-900 transition-transform group-open:rotate-180"
                   >
-                    <svg viewBox="0 0 20 20" fill="none" className="h-3 w-3">
-                      <path
-                        d="M10 4v12M4 10h12"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
+                    <path
+                      d="M5 8l5 5 5-5"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700">
-                  {f.a}
-                </p>
+                <p className="mt-3 text-sm leading-relaxed text-ink-700">{f.a}</p>
               </details>
             ))}
           </div>
