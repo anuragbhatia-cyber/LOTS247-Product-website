@@ -7,7 +7,7 @@ import { capabilities } from "@/components/sections/capabilities-data";
 
 export { capabilities };
 
-export function Capabilities() {
+export function Capabilities({ showHeader = true }: { showHeader?: boolean } = {}) {
   const [active, setActive] = useState(capabilities[0].slug);
   const listRef = useRef<HTMLDivElement>(null);
   const btnRefs = useRef<Record<string, HTMLButtonElement | null>>({});
@@ -54,16 +54,18 @@ export function Capabilities() {
   return (
     <section className="section bg-ink-900" id="capabilities">
       <div className="container-x">
-        <div className="mx-auto max-w-5xl text-center">
-          <h2 className="h2 text-white md:whitespace-nowrap">
-            Built for legal operations at scale
-          </h2>
-          <p className="mt-5 text-lg leading-[1.6] text-white">
-            A single platform that unifies legal help, compliance, and operational data across your entire fleet.
-          </p>
-        </div>
+        {showHeader ? (
+          <div className="mx-auto max-w-5xl text-center">
+            <h2 className="h2 text-white md:whitespace-nowrap">
+              Built for legal operations at scale
+            </h2>
+            <p className="mt-5 text-lg leading-[1.6] text-white">
+              A single platform that unifies legal help, compliance, and operational data across your entire fleet.
+            </p>
+          </div>
+        ) : null}
 
-        <div className="relative mt-8">
+        <div className={`relative ${showHeader ? "mt-8" : ""}`}>
           <div
             className="sticky z-30 -mx-6 overflow-x-auto px-6 pb-1 transition-[top] duration-300 ease-out [-ms-overflow-style:none] [scrollbar-width:none] md:mx-0 md:flex md:justify-center md:overflow-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
             style={{ top: "var(--nav-offset, 80px)" }}

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { FinalCta } from "@/components/sections/final-cta";
 import { HowItWorks } from "@/components/sections/how-it-works";
 import { BookDemoButton } from "@/components/book-demo-button";
+import { Faq } from "@/components/sections/faq";
 
 export const metadata: Metadata = {
   title: "RoadCare — Vehicle Legal Assistance for Private Owners | LOTS247",
@@ -584,39 +585,7 @@ export default function CarePage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16" id="faq">
-        <div className="container-x">
-          <Heading title="Frequently Asked Questions" />
-          <div className="mx-auto mt-10 max-w-4xl space-y-3">
-            {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="group rounded-xl border border-ink-300/60 bg-white px-6 py-4 shadow-card"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-ink-900 [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                    className="h-4 w-4 shrink-0 text-ink-900 transition-transform group-open:rotate-180"
-                  >
-                    <path
-                      d="M5 8l5 5 5-5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq items={faqs} />
 
       <FinalCta />
     </main>

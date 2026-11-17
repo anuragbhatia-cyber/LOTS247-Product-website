@@ -3,6 +3,8 @@ import Image from "next/image";
 import { BookDemoButton } from "@/components/book-demo-button";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionHeader } from "@/components/ui";
+import { Faq } from "@/components/sections/faq";
+import { IndustryIcon, type IndustryIconName } from "@/components/industry-icon";
 
 export const metadata: Metadata = {
   title: "Driving Licence Verification API — LOTS247",
@@ -47,29 +49,35 @@ const benefits = [
   },
 ];
 
-const industries = [
+const industries: { title: string; desc: string; icon: IndustryIconName }[] = [
   {
     title: "Car Rental Services",
+    icon: "car",
     desc: "Verify driving licence details before renting vehicles and streamline driver verification during the booking or onboarding process.",
   },
   {
     title: "Fleet Management Companies",
+    icon: "truck",
     desc: "Verify and monitor driver licence details to support driver onboarding, compliance, and fleet operations.",
   },
   {
     title: "Logistics Companies",
+    icon: "package",
     desc: "Validate driving licence information of drivers during recruitment and onboarding processes.",
   },
   {
     title: "Financial Institutions & Insurance Companies",
+    icon: "bank",
     desc: "Use driving licence verification as part of customer onboarding and verification workflows.",
   },
   {
     title: "Employment Verification",
+    icon: "briefcase",
     desc: "Verify the driving licence details of candidates, particularly for driver-based roles and transportation operations.",
   },
   {
     title: "Mobility & Ride-Hailing Platforms",
+    icon: "phone",
     desc: "Verify driver credentials before onboarding them onto mobility and transportation platforms.",
   },
 ];
@@ -122,34 +130,19 @@ const steps = [
     n: "01",
     title: "Enter Driving Licence Number",
     desc: "Provide the driving licence number through the API request.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
-        <path d="M12 20h9" />
-        <path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
-      </svg>
-    ),
+    image: "/dl-step-licence.webp",
   },
   {
     n: "02",
     title: "API Processing",
     desc: "LOTS247 processes the request and retrieves the available driving licence information.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
-        <path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z" />
-      </svg>
-    ),
+    image: "/dl-step-processing.webp",
   },
   {
     n: "03",
     title: "Get Licence Details",
     desc: "Receive essential driving licence details in a structured API response that can be integrated into your existing platform or workflow.",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-5 w-5">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <path d="M14 2v6h6" />
-        <path d="M9 15l2 2 4-4" />
-      </svg>
-    ),
+    image: "/dl-step-details.webp",
   },
 ];
 
@@ -158,11 +151,11 @@ export default function DrivingLicenceVerificationApiPage() {
     <main>
       <section className="relative overflow-hidden bg-ink-900 pt-20 pb-24 text-white md:pt-24 md:pb-28">
         <div className="container-x relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="h1 text-white">
+          <div className="mx-auto max-w-5xl text-center">
+            <h1 className="h1 text-white xl:whitespace-nowrap">
               Driving Licence Verification API
             </h1>
-            <p className="mt-6 text-lg leading-[1.6] text-white/80">
+            <p className="mx-auto mt-6 max-w-3xl text-lg leading-[1.6] text-white/80">
               Access essential driving licence information through a simple API
               integration and streamline verification workflows for businesses
               managing drivers, vehicles, and mobility operations.
@@ -219,18 +212,26 @@ export default function DrivingLicenceVerificationApiPage() {
                 key={s.n}
                 className="relative rounded-2xl border border-accent/50 bg-white p-6 transition-all hover:shadow-card"
               >
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent-soft text-accent">
-                  {s.icon}
+                <div className="flex items-start gap-3">
+                  <Image
+                    src={s.image}
+                    alt=""
+                    width={120}
+                    height={120}
+                    className="-ml-3 h-[120px] w-[120px] shrink-0 md:h-24 md:w-24 lg:h-[120px] lg:w-[120px]"
+                  />
+                  <div className="min-w-0 pt-2">
+                    <div className="font-mono text-sm font-bold text-accent">
+                      Step {s.n}
+                    </div>
+                    <div className="mt-2 text-lg font-semibold text-ink-900">
+                      {s.title}
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-ink-700">
+                      {s.desc}
+                    </p>
+                  </div>
                 </div>
-                <div className="mt-5 font-mono text-sm font-bold text-accent">
-                  Step {s.n}
-                </div>
-                <div className="mt-3 text-lg font-semibold text-ink-900">
-                  {s.title}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                  {s.desc}
-                </p>
                 {idx < steps.length - 1 ? (
                   <div
                     aria-hidden
@@ -291,10 +292,10 @@ export default function DrivingLicenceVerificationApiPage() {
                 {outputFields.map((f) => (
                   <li
                     key={f}
-                    className="flex items-start gap-3 rounded-lg border border-ink-300/60 bg-white px-3 py-2"
+                    className="flex items-center gap-3 rounded-lg border border-accent/20 bg-accent/10 px-3 py-2.5"
                   >
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
-                    <span className="text-[14px] font-medium text-ink-900">{f}</span>
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+                    <span className="text-[14px] font-semibold text-ink-900">{f}</span>
                   </li>
                 ))}
               </ul>
@@ -303,18 +304,18 @@ export default function DrivingLicenceVerificationApiPage() {
         </div>
       </section>
 
-      <section className="section bg-surface-alt">
+      <section className="section bg-[#EDF1F7]">
         <div className="container-x">
           <SectionHeader
             title="Why Use LOTS247 Driving Licence Verification API?"
           />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 flex flex-wrap justify-center gap-6">
             {benefits.map((b) => (
               <div
                 key={b.title}
-                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
+                className="w-full rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
               >
-                <div className="text-[15px] font-semibold text-ink-900">
+                <div className="text-[18px] font-semibold text-ink-900">
                   {b.title}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-ink-700">
@@ -337,7 +338,8 @@ export default function DrivingLicenceVerificationApiPage() {
                 key={i.title}
                 className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
               >
-                <div className="text-[15px] font-semibold text-ink-900">
+                <IndustryIcon name={i.icon} />
+                <div className="mt-4 text-[18px] font-semibold text-ink-900">
                   {i.title}
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-ink-700">
@@ -349,38 +351,7 @@ export default function DrivingLicenceVerificationApiPage() {
         </div>
       </section>
 
-      <section className="section bg-surface-alt" id="faq">
-        <div className="container-x">
-          <SectionHeader
-            title="Frequently Asked Questions"
-          />
-          <div className="mx-auto mt-14 max-w-3xl divide-y divide-ink-300/60 rounded-2xl border border-ink-300/60 bg-white">
-            {faqs.map((f) => (
-              <details key={f.q} className="group px-6 py-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 text-[15px] font-semibold text-ink-900">
-                  {f.q}
-                  <span
-                    aria-hidden="true"
-                    className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-ink-300 text-ink-700 transition-transform group-open:rotate-45"
-                  >
-                    <svg viewBox="0 0 20 20" fill="none" className="h-3 w-3">
-                      <path
-                        d="M10 4v12M4 10h12"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700">
-                  {f.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq items={faqs} />
 
       <FinalCta />
     </main>
