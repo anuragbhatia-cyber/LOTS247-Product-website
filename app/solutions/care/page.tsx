@@ -5,15 +5,15 @@ import { FinalCta } from "@/components/sections/final-cta";
 import { HowItWorks } from "@/components/sections/how-it-works";
 
 export const metadata: Metadata = {
-  title: "Care — Vehicle Legal Assistance for Private Owners | LOTS247",
+  title: "RoadCare — Vehicle Legal Assistance for Private Owners | LOTS247",
   description:
-    "LOTS247 Care is a vehicle legal assistance plan for private vehicle owners — 24×7 on-call resolution, challan-as-a-service, dashboard access, and WhatsApp incident updates for one vehicle at ₹999 for six months.",
+    "LOTS247 RoadCare is a vehicle legal assistance plan for private vehicle owners — 24×7 on-call resolution, challan-as-a-service, dashboard access, and WhatsApp incident updates for one vehicle at ₹999 for six months.",
 };
 
 const features = [
   {
     title: "Coverage for 1 Vehicle",
-    desc: "Each LOTS247 Care subscription covers one vehicle, built around the needs of individual private vehicle owners.",
+    desc: "Each LOTS247 RoadCare subscription covers one vehicle, built around the needs of individual private vehicle owners.",
     icon: "truck",
   },
   {
@@ -147,20 +147,20 @@ const summary = [
 
 const faqs = [
   {
-    q: "What is LOTS247 Care?",
-    a: "LOTS247 Care is a six-month roadside legal assistance subscription for private vehicle owners. It provides 24×7 on-call legal assistance, challan-related services, dashboard access, and incident updates via WhatsApp.",
+    q: "What is LOTS247 RoadCare?",
+    a: "LOTS247 RoadCare is a six-month roadside legal assistance subscription for private vehicle owners. It provides 24×7 on-call legal assistance, challan-related services, dashboard access, and incident updates via WhatsApp.",
   },
   {
-    q: "What is the price of LOTS247 Care?",
-    a: "LOTS247 Care is available at ₹999 per vehicle for six months.",
+    q: "What is the price of LOTS247 RoadCare?",
+    a: "LOTS247 RoadCare is available at ₹999 per vehicle for six months.",
   },
   {
     q: "How many vehicles are covered under the subscription?",
-    a: "Each LOTS247 Care subscription covers one private vehicle.",
+    a: "Each LOTS247 RoadCare subscription covers one private vehicle.",
   },
   {
-    q: "Does LOTS247 Care provide 24×7 legal assistance?",
-    a: "Yes. LOTS247 Care includes 24×7 on-call legal assistance for vehicle-related roadside legal issues.",
+    q: "Does LOTS247 RoadCare provide 24×7 legal assistance?",
+    a: "Yes. LOTS247 RoadCare includes 24×7 on-call legal assistance for vehicle-related roadside legal issues.",
   },
   {
     q: "Is on-site legal assistance included in the subscription?",
@@ -168,39 +168,39 @@ const faqs = [
   },
   {
     q: "Can I get assistance with my vehicle challans?",
-    a: "Yes. LOTS247 Care includes Challan-as-a-Service, with assistance available for eligible online, Lok Adalat, court, and express challan resolution options.",
+    a: "Yes. LOTS247 RoadCare includes Challan-as-a-Service, with assistance available for eligible online, Lok Adalat, court, and express challan resolution options.",
   },
   {
     q: "What are the challan resolution charges?",
     a: "The applicable service charges are: Online Challan Resolution — ₹200, Lok Adalat Resolution — ₹1,000, Court Challan Resolution — ₹2,000, and Express Challan Resolution — ₹3,000. Resolution is subject to eligibility and applicable service conditions.",
   },
   {
-    q: "Does LOTS247 Care provide RTO assistance?",
+    q: "Does LOTS247 RoadCare provide RTO assistance?",
     a: "Yes. RTO-as-a-Service is available on a pay-per-use basis for applicable vehicle-related requirements.",
   },
   {
-    q: "Does LOTS247 Care include dashboard access?",
-    a: "Yes. Dashboard access is included in the LOTS247 Care subscription.",
+    q: "Does LOTS247 RoadCare include dashboard access?",
+    a: "Yes. Dashboard access is included in the LOTS247 RoadCare subscription.",
   },
   {
     q: "Will I receive updates about my incident?",
-    a: "Yes. LOTS247 Care includes incident updates through WhatsApp.",
+    a: "Yes. LOTS247 RoadCare includes incident updates through WhatsApp.",
   },
   {
     q: "Are automated and personalized reports included?",
-    a: "No. Automated reports and personalized reports are not included in the LOTS247 Care subscription.",
+    a: "No. Automated reports and personalized reports are not included in the LOTS247 RoadCare subscription.",
   },
   {
     q: "Is a Dedicated Account Manager included?",
-    a: "No. Dedicated Account Manager support is not included in the LOTS247 Care plan.",
+    a: "No. Dedicated Account Manager support is not included in the LOTS247 RoadCare plan.",
   },
   {
     q: "Can I access additional services?",
     a: "Yes. On-site legal assistance, RTO services, add-on services, and value-added services are available on a pay-per-use basis.",
   },
   {
-    q: "Who should subscribe to LOTS247 Care?",
-    a: "LOTS247 Care is ideal for private car owners, daily commuters, families, and frequent travellers who want access to legal assistance and challan resolution support for their vehicle.",
+    q: "Who should subscribe to LOTS247 RoadCare?",
+    a: "LOTS247 RoadCare is ideal for private car owners, daily commuters, families, and frequent travellers who want access to legal assistance and challan resolution support for their vehicle.",
   },
 ];
 
@@ -353,7 +353,7 @@ export default function CarePage() {
           <div className="max-w-xl">
             <Image
               src="/logo-care.png"
-              alt="LOTS247 Care"
+              alt="LOTS247 RoadCare"
               width={360}
               height={110}
               className="-ml-3 h-14 w-auto object-contain md:h-16"
@@ -436,7 +436,7 @@ export default function CarePage() {
           <div className="grid items-center gap-10 overflow-hidden rounded-3xl bg-[#0F172A] p-8 md:p-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12">
             <div>
               <h2 className="text-2xl font-bold leading-[1.2] tracking-[-0.01em] text-white md:text-[34px]">
-                Why Private Vehicle Owners Need LOTS247 Care
+                Why Private Vehicle Owners Need LOTS247 RoadCare
               </h2>
               <ul className="mt-8 grid gap-5 sm:grid-cols-2">
                 {problems.map((p) => (
@@ -549,7 +549,7 @@ export default function CarePage() {
 
             <div className="flex flex-col rounded-2xl border border-ink-300/60 bg-ink-100 p-7 md:p-8">
               <div className="text-lg font-bold text-ink-900">
-                What Do You Get with LOTS247 Care?
+                What Do You Get with LOTS247 RoadCare?
               </div>
               <ul className="mt-7 grid gap-x-6 gap-y-6 sm:grid-cols-2">
                 {summary.map((item) => (
@@ -570,7 +570,7 @@ export default function CarePage() {
       {/* Why choose */}
       <section className="bg-[#0F172A] py-20 md:py-24">
         <div className="container-x">
-          <Heading title="Why Choose LOTS247 Care?" dark />
+          <Heading title="Why Choose LOTS247 RoadCare?" dark />
           <div className="mx-auto mt-12 grid max-w-6xl gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b, i) => (
               <div

@@ -7,8 +7,8 @@ import { Logo } from "@/components/logo";
 import { BookDemoButton } from "@/components/book-demo-button";
 
 const solutionsItems = [
-  { href: "/solutions/care", label: "Care" },
   { href: "https://lots247.in/", label: "Sarathi", external: true },
+  { href: "/solutions/care", label: "RoadCare" },
   { href: "/solutions/vcare", label: "VCare" },
   { href: "/solutions/bsafe", label: "BSafe" },
 ];

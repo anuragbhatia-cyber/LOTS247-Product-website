@@ -8,8 +8,8 @@ const slide = {
   primaryCta: { label: "Book a demo", href: "/contact" },
   secondaryCta: { label: "Login", href: "https://dashboard.lots247.in/login" },
   image: {
-    src: "/hero-fleet-duo.png",
-    alt: "A taxi driver and a truck driver standing confidently beside their vehicles at golden hour, with a mixed fleet of cars and trucks behind them",
+    src: "/hero-fleet-ops-team.png",
+    alt: "A fleet operations team working on a laptop and tablet beside a live fleet dashboard at sunset, with a taxi, truck and vans parked behind them",
   },
 };
 

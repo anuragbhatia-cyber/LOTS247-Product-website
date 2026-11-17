@@ -44,8 +44,8 @@ const cols = [
   {
     title: "Solutions",
     links: [
-      { l: "Care", h: "/solutions/care" },
       { l: "Sarathi", h: "/solutions#sarathi" },
+      { l: "RoadCare", h: "/solutions/care" },
       { l: "VCare", h: "/solutions#vcare" },
       { l: "BSafe", h: "/solutions#bsafe" },
     ],
