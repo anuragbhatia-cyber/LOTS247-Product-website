@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { FinalCta } from "@/components/sections/final-cta";
 import { HowItWorks } from "@/components/sections/how-it-works";
+import { BookDemoButton } from "@/components/book-demo-button";
 
 export const metadata: Metadata = {
   title: "RoadCare — Vehicle Legal Assistance for Private Owners | LOTS247",
@@ -367,13 +367,10 @@ export default function CarePage() {
               WhatsApp updates for your vehicle — ₹999 for six months.
             </p>
             <div className="mt-8">
-              <Link
-                href="/contact"
-                className="btn-primary min-w-[240px] rounded-full px-12 shadow-[0_8px_20px_-6px_rgba(44,183,125,0.55)]"
-              >
+              <BookDemoButton variant="register" className="btn-primary min-w-[240px] rounded-full px-12 shadow-[0_8px_20px_-6px_rgba(44,183,125,0.55)]">
                 Register Now
                 <Arrow />
-              </Link>
+              </BookDemoButton>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-[14px] font-semibold text-ink-900">
               <span className="inline-flex items-center gap-2">
@@ -452,10 +449,10 @@ export default function CarePage() {
                 ))}
               </ul>
               <div className="mt-8">
-                <Link href="/contact" className="btn-primary rounded-full px-7">
+                <BookDemoButton variant="register" className="btn-primary rounded-full px-7">
                   Register Now
                   <Arrow />
-                </Link>
+                </BookDemoButton>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_24px_50px_-20px_rgba(0,0,0,0.6)] lg:aspect-[5/4] lg:-rotate-1">
@@ -471,10 +468,10 @@ export default function CarePage() {
         </div>
       </section>
 
-      <HowItWorks cta={{ label: "Register Now", href: "/contact" }} />
+      <HowItWorks ctaLabel="Register Now" ctaVariant="register" />
 
       {/* Features */}
-      <section className="bg-surface-alt py-20 md:py-24">
+      <section className="bg-[#EDF1F7] py-20 md:py-24">
         <div className="container-x">
           <Heading title="Everything You Need for Vehicle Legal Assistance" />
           <div className="mx-auto mt-12 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -538,13 +535,10 @@ export default function CarePage() {
                 ))}
               </div>
 
-              <Link
-                href="/contact"
-                className="btn-primary mt-6 w-full shadow-[0_10px_24px_-10px_rgba(44,183,125,0.7)]"
-              >
+              <BookDemoButton variant="register" className="btn-primary mt-6 w-full shadow-[0_10px_24px_-10px_rgba(44,183,125,0.7)]">
                 Register Now
                 <Arrow />
-              </Link>
+              </BookDemoButton>
             </div>
 
             <div className="flex flex-col rounded-2xl border border-ink-300/60 bg-ink-100 p-7 md:p-8">
@@ -582,7 +576,7 @@ export default function CarePage() {
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-accent/15 text-accent">
                   <Icon name={benefitIcons[i]} className="h-7 w-7" />
                 </span>
-                <div className="mt-4 text-[15px] font-semibold text-white">{b.title}</div>
+                <div className="mt-4 text-[18px] font-semibold text-white">{b.title}</div>
                 <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/70">{b.desc}</p>
               </div>
             ))}
