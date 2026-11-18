@@ -19,7 +19,7 @@ export default function PlatformPage() {
         primaryCta={{ label: "Book a demo", href: "/contact" }}
         secondaryCta={{ label: "Login", href: "/login" }}
       />
-      <Capabilities />
+      <Capabilities showHeader={false} />
       <DashboardGallery />
       <FinalCta />
     </main>

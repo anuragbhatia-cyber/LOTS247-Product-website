@@ -6,9 +6,93 @@ import { createPortal } from "react-dom";
 type Props = {
   className?: string;
   children?: React.ReactNode;
+  variant?: "demo" | "register";
 };
 
-export function BookDemoButton({ className, children }: Props) {
+const inputClass =
+  "rounded-lg border border-ink-300/60 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
+
+function FieldLabel({
+  children,
+  optional,
+}: {
+  children: React.ReactNode;
+  optional?: boolean;
+}) {
+  return (
+    <span className="text-[13px] font-medium text-ink-700">
+      {children}{" "}
+      {optional ? (
+        <span className="font-normal text-ink-500">(optional)</span>
+      ) : (
+        <span className="text-red-500">*</span>
+      )}
+    </span>
+  );
+}
+
+function RegisterFields() {
+  return (
+    <>
+      <label className="flex flex-col gap-1.5">
+        <FieldLabel>Enter your full name</FieldLabel>
+        <input
+          type="text"
+          name="name"
+          required
+          autoComplete="name"
+          placeholder="Enter your full name"
+          className={inputClass}
+        />
+      </label>
+      <label className="flex flex-col gap-1.5">
+        <FieldLabel>Mobile Number</FieldLabel>
+        <div className="flex overflow-hidden rounded-lg border border-ink-300/60 bg-white focus-within:border-accent focus-within:ring-2 focus-within:ring-accent/30">
+          <span className="flex items-center border-r border-ink-300/60 px-3.5 text-[14px] text-ink-700">
+            +91
+          </span>
+          <input
+            type="tel"
+            name="mobile"
+            required
+            inputMode="numeric"
+            autoComplete="tel-national"
+            pattern="[6-9][0-9]{9}"
+            maxLength={10}
+            title="Enter a valid 10-digit mobile number"
+            placeholder="Enter phone number"
+            className="min-w-0 flex-1 px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:outline-none"
+          />
+        </div>
+      </label>
+      <label className="flex flex-col gap-1.5">
+        <FieldLabel optional>Email</FieldLabel>
+        <input
+          type="email"
+          name="email"
+          autoComplete="email"
+          placeholder="you@example.com"
+          className={inputClass}
+        />
+      </label>
+      <label className="flex flex-col gap-1.5">
+        <FieldLabel>Vehicle Number</FieldLabel>
+        <input
+          type="text"
+          name="vehicle_number"
+          required
+          autoCapitalize="characters"
+          maxLength={13}
+          placeholder="e.g. DL01AB1234"
+          className={`${inputClass} uppercase placeholder:normal-case`}
+        />
+      </label>
+    </>
+  );
+}
+
+export function BookDemoButton({ className, children, variant = "demo" }: Props) {
+  const isRegister = variant === "register";
   const [open, setOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -85,11 +169,11 @@ export function BookDemoButton({ className, children }: Props) {
 
             {submitted ? (
               <div className="py-4 text-center">
-                <div className="mx-auto grid h-12 w-12 place-items-center rounded-full bg-accent/15 text-accent">
+                <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-accent/15 text-accent">
                   <svg
                     viewBox="0 0 20 20"
                     fill="none"
-                    className="h-6 w-6"
+                    className="h-10 w-10"
                     aria-hidden="true"
                   >
                     <path
@@ -103,7 +187,7 @@ export function BookDemoButton({ className, children }: Props) {
                 </div>
                 <h3
                   id={titleId}
-                  className="mt-4 text-lg font-semibold text-ink-900"
+                  className="mt-5 text-xl font-bold text-ink-900"
                 >
                   Our team will get in touch with you
                 </h3>
@@ -118,7 +202,7 @@ export function BookDemoButton({ className, children }: Props) {
             ) : (
               <>
                 <h3 id={titleId} className="text-xl font-bold text-ink-900">
-                  Book a demo
+                  {isRegister ? "Subscribe to RoadCare" : "Book a demo"}
                 </h3>
                 <form
                   action="/api/book-demo"
@@ -129,66 +213,72 @@ export function BookDemoButton({ className, children }: Props) {
                   }}
                   className="mt-5 flex flex-col gap-3"
                 >
-                  <label className="flex flex-col gap-1.5">
-                    <span className="text-[13px] font-medium text-ink-700">
-                      Full name
-                    </span>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      placeholder="e.g. Rahul Sharma"
-                      className="rounded-lg border border-ink-300/60 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
-                    />
-                  </label>
-                  <label className="flex flex-col gap-1.5">
-                    <span className="text-[13px] font-medium text-ink-700">
-                      Email
-                    </span>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      placeholder="you@company.com"
-                      className="rounded-lg border border-ink-300/60 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
-                    />
-                  </label>
-                  <label className="flex flex-col gap-1.5">
-                    <span className="text-[13px] font-medium text-ink-700">
-                      Fleet size
-                    </span>
-                    <select
-                      name="fleet_size"
-                      defaultValue=""
-                      required
-                      className="appearance-none rounded-lg border border-ink-300/60 bg-white bg-[right_0.75rem_center] bg-no-repeat px-3.5 py-2.5 pr-9 text-[14px] text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
-                      style={{
-                        backgroundImage:
-                          "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'><path d='M5 8l5 5 5-5' stroke='rgb(100 116 139 / 0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>\")",
-                      }}
-                    >
-                      <option value="" disabled>
-                        Select fleet size
-                      </option>
-                      <option className="text-ink-900" value="1-10">
-                        1 – 10
-                      </option>
-                      <option className="text-ink-900" value="11-50">
-                        11 – 50
-                      </option>
-                      <option className="text-ink-900" value="51-200">
-                        51 – 200
-                      </option>
-                      <option className="text-ink-900" value="201-1000">
-                        201 – 1000
-                      </option>
-                      <option className="text-ink-900" value="1000+">
-                        1000+
-                      </option>
-                    </select>
-                  </label>
+                  {isRegister ? (
+                    <RegisterFields />
+                  ) : (
+                    <>
+                      <label className="flex flex-col gap-1.5">
+                        <span className="text-[13px] font-medium text-ink-700">
+                          Full name
+                        </span>
+                        <input
+                          type="text"
+                          name="name"
+                          required
+                          placeholder="e.g. Rahul Sharma"
+                          className="rounded-lg border border-ink-300/60 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+                        />
+                      </label>
+                      <label className="flex flex-col gap-1.5">
+                        <span className="text-[13px] font-medium text-ink-700">
+                          Email
+                        </span>
+                        <input
+                          type="email"
+                          name="email"
+                          required
+                          placeholder="you@company.com"
+                          className="rounded-lg border border-ink-300/60 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+                        />
+                      </label>
+                      <label className="flex flex-col gap-1.5">
+                        <span className="text-[13px] font-medium text-ink-700">
+                          Fleet size
+                        </span>
+                        <select
+                          name="fleet_size"
+                          defaultValue=""
+                          required
+                          className="appearance-none rounded-lg border border-ink-300/60 bg-white bg-[right_0.75rem_center] bg-no-repeat px-3.5 py-2.5 pr-9 text-[14px] text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30"
+                          style={{
+                            backgroundImage:
+                              "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'><path d='M5 8l5 5 5-5' stroke='rgb(100 116 139 / 0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>\")",
+                          }}
+                        >
+                          <option value="" disabled>
+                            Select fleet size
+                          </option>
+                          <option className="text-ink-900" value="1-10">
+                            1 – 10
+                          </option>
+                          <option className="text-ink-900" value="11-50">
+                            11 – 50
+                          </option>
+                          <option className="text-ink-900" value="51-200">
+                            51 – 200
+                          </option>
+                          <option className="text-ink-900" value="201-1000">
+                            201 – 1000
+                          </option>
+                          <option className="text-ink-900" value="1000+">
+                            1000+
+                          </option>
+                        </select>
+                      </label>
+                    </>
+                  )}
                   <button type="submit" className="btn-primary mt-2 w-full">
-                    Request demo
+                    {isRegister ? "Get Subscription" : "Request demo"}
                   </button>
                 </form>
               </>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { BookDemoButton } from "@/components/book-demo-button";
 import { FinalCta } from "@/components/sections/final-cta";
 import { SectionHeader } from "@/components/ui";
+import { Faq } from "@/components/sections/faq";
 
 export const metadata: Metadata = {
   title: "BSafe — Vehicle Support Solution for Businesses | LOTS247",
@@ -147,33 +148,6 @@ const problems = [
   },
 ];
 
-const benefits = [
-  {
-    title: "Unlimited Vehicle Coverage",
-    desc: "Manage unlimited vehicles under one account without worrying about fixed vehicle limits.",
-  },
-  {
-    title: "Centralized Support",
-    desc: "Access legal, challan, compliance, and RTO-related services through a single platform.",
-  },
-  {
-    title: "Pay Only for What You Need",
-    desc: "Additional services such as on-site legal resolution, RTO assistance, and value-added services are available on a pay-per-use basis.",
-  },
-  {
-    title: "Better Operational Visibility",
-    desc: "Use the dashboard and automated reports to stay informed about vehicle-related activities and services.",
-  },
-  {
-    title: "Faster Updates",
-    desc: "Receive incident-related updates through WhatsApp for better communication and tracking.",
-  },
-  {
-    title: "Built for Growing Operations",
-    desc: "BSafe is designed for businesses looking for a scalable solution to manage increasing vehicle-related requirements.",
-  },
-];
-
 const clientLogos = [
   { src: "/client-blr.png", alt: "BLR" },
   { src: "/client-bluwheelz.png", alt: "Bluwheelz" },
@@ -256,40 +230,82 @@ const faqs = [
 export default function BSafePage() {
   return (
     <main>
-      <section className="relative overflow-hidden bg-ink-900 pt-14 pb-16 text-white md:pt-16 md:pb-20">
+      <section className="relative overflow-hidden bg-ink-900 pt-20 pb-20 text-white md:pt-24 md:pb-24 lg:pt-32 lg:pb-32">
+        <div className="absolute inset-y-0 right-0 w-full lg:w-[62%]">
+          <Image
+            src="/bsafe-hero-fleet.webp"
+            alt="Two vehicle owners standing beside a car, taxi and trucks at sunset"
+            fill
+            priority
+            sizes="(min-width: 1024px) 62vw, 100vw"
+            className="object-cover object-[center_40%]"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-ink-900/75 lg:bg-transparent lg:bg-gradient-to-r lg:from-ink-900 lg:via-ink-900/60 lg:to-ink-900/0"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-t from-ink-900/60 via-transparent to-ink-900/30"
+          />
+        </div>
         <div className="container-x relative">
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="h1 text-white">LOTS247 BSafe</h1>
-            <p className="mt-6 text-[15px] leading-relaxed text-white/70">
-              BSafe is LOTS247&apos;s vehicle support solution for businesses managing multiple vehicles — combining 24×7 legal assistance, challan resolution, RTO support, and compliance tracking on one platform.
-            </p>
-            <div className="mt-8 flex justify-center">
-              <Link
-                href="/contact"
-                className="btn-primary inline-flex items-center justify-center gap-2 px-10"
-              >
-                Contact Sales
-                <svg
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  aria-hidden="true"
-                  className="h-4 w-4"
+          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+            <div className="text-center lg:text-left">
+              <h1 className="h1 text-white">LOTS247 BSafe</h1>
+              <p className="mt-6 text-[15px] leading-relaxed text-white/80">
+                BSafe is LOTS247&apos;s vehicle support solution for businesses managing multiple vehicles — combining 24×7 legal assistance, challan resolution, RTO support, and compliance tracking on one platform.
+              </p>
+              <div className="mt-8 flex justify-center lg:justify-start">
+                <Link
+                  href="/contact"
+                  className="btn-primary inline-flex items-center justify-center gap-2 px-10"
                 >
-                  <path
-                    d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </Link>
+                  Contact Sales
+                  <svg
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                    className="h-4 w-4"
+                  >
+                    <path
+                      d="M4 10h12m0 0l-4-4m4 4l-4 4"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       <section className="section bg-white">
+        <div className="container-x">
+          <SectionHeader title="Managing Multiple Vehicles Shouldn't Mean Managing Multiple Problems" />
+          <div className="mt-14 flex flex-wrap justify-center gap-6">
+            {problems.map((p) => (
+              <div
+                key={p.title}
+                className="w-full rounded-2xl border border-red-100 bg-red-50 p-6 transition-all hover:shadow-card md:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)]"
+              >
+                <div className="text-[18px] font-bold text-red-600">
+                  {p.title}
+                </div>
+                <p className="mt-2 text-[15px] font-medium leading-relaxed text-ink-900/80">
+                  {p.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+      </section>
+
+      <section className="section bg-surface-alt">
         <div className="container-x">
           <SectionHeader title="BSafe Annual Plan" />
 
@@ -313,7 +329,7 @@ export default function BSafePage() {
                     ₹40,000
                   </span>
                 </div>
-                <p className="mt-2 text-sm text-ink-700">
+                <p className="mt-2 text-[17px] font-medium text-ink-700">
                   per Account / Year
                 </p>
                 <div className="mt-8 flex flex-wrap gap-3">
@@ -331,13 +347,13 @@ export default function BSafePage() {
                   {includedInPlan.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-3 text-[14px] text-ink-900"
+                      className="flex items-center gap-3 text-[14px] font-semibold text-ink-900"
                     >
-                      <span className="mt-1 grid h-4 w-4 flex-shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
+                      <span className="grid h-6 w-6 flex-shrink-0 place-items-center rounded-full bg-accent/15 text-accent">
                         <svg
                           viewBox="0 0 20 20"
                           fill="none"
-                          className="h-2.5 w-2.5"
+                          className="h-3.5 w-3.5"
                           aria-hidden="true"
                         >
                           <path
@@ -360,7 +376,7 @@ export default function BSafePage() {
               <h3 className="text-xl font-bold text-ink-900">
                 Additional Services Available
               </h3>
-              <div className="mt-6 overflow-hidden rounded-2xl border border-ink-300/60">
+              <div className="mt-6 overflow-hidden rounded-2xl border border-ink-300/60 bg-white">
                 <table className="w-full text-left">
                   <thead className="bg-surface-alt">
                     <tr>
@@ -381,7 +397,7 @@ export default function BSafePage() {
                         <td className="px-5 py-4 text-sm font-semibold text-ink-900">
                           {row.service}
                         </td>
-                        <td className="px-5 py-4 text-sm text-ink-700">
+                        <td className="px-5 py-4 text-sm font-medium text-ink-900">
                           {row.offering}
                         </td>
                       </tr>
@@ -394,87 +410,7 @@ export default function BSafePage() {
         </div>
       </section>
 
-      <section className="section bg-surface-alt">
-        <div className="container-x">
-          <SectionHeader
-            title="Everything You Need to Manage Vehicle-Related Legal & Compliance Requirements"
-          />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {features.map((f) => (
-              <div
-                key={f.title}
-                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
-              >
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-accent/10 text-accent">
-                  <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.75"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                    className="h-6 w-6"
-                  >
-                    <path d={iconPaths[f.icon]} />
-                  </svg>
-                </div>
-                <div className="mt-4 text-[15px] font-semibold text-ink-900">
-                  {f.title}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                  {f.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section bg-white">
-        <div className="container-x">
-          <SectionHeader title="Managing Multiple Vehicles Shouldn't Mean Managing Multiple Problems" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {problems.map((p) => (
-              <div
-                key={p.title}
-                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
-              >
-                <div className="text-[15px] font-semibold text-ink-900">
-                  {p.title}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                  {p.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      <section className="section bg-white">
-        <div className="container-x">
-          <SectionHeader title="Why Choose BSafe?" />
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {benefits.map((b) => (
-              <div
-                key={b.title}
-                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
-              >
-                <div className="text-[15px] font-semibold text-ink-900">
-                  {b.title}
-                </div>
-                <p className="mt-2 text-sm leading-relaxed text-ink-700">
-                  {b.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section bg-surface-alt">
         <div className="container-x">
           <SectionHeader title="Designed for Businesses Managing Multiple Vehicles" />
           <div className="mx-auto mt-12 grid max-w-5xl grid-cols-2 items-center justify-items-center gap-x-8 gap-y-8 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7">
@@ -493,15 +429,56 @@ export default function BSafePage() {
         </div>
       </section>
 
+      <section className="section bg-[#EDF1F7]">
+        <div className="container-x">
+          <SectionHeader
+            title="Everything You Need to Manage Vehicle-Related Legal & Compliance Requirements"
+          />
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {features.map((f) => (
+              <div
+                key={f.title}
+                className="rounded-2xl border border-ink-300/60 bg-white p-6 transition-all hover:shadow-card"
+              >
+                <div className="flex items-start gap-3">
+                  <div className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-xl bg-accent/10 text-accent">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.75"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className="h-6 w-6"
+                    >
+                      <path d={iconPaths[f.icon]} />
+                    </svg>
+                  </div>
+                  <div className="min-w-0 pt-2">
+                    <div className="text-[18px] font-bold leading-tight text-ink-900">
+                      {f.title}
+                    </div>
+                    <p className="mt-1 text-sm leading-relaxed text-ink-700">
+                      {f.desc}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="bg-accent py-10 md:py-12">
         <div className="container-x">
           <SectionHeader title="What Do You Get with BSafe?" dark />
           <div className="mx-auto mt-10 max-w-5xl rounded-3xl border border-ink-300/60 bg-white p-8 shadow-card md:p-12">
-            <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="grid gap-x-6 gap-y-5 sm:grid-cols-2 lg:grid-cols-3">
               {summary.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3 text-[14px] font-medium text-ink-900"
+                  className="flex items-start gap-3 text-[14px] font-semibold text-ink-900"
                 >
                   <span className="mt-1 grid h-5 w-5 flex-shrink-0 place-items-center rounded-full bg-accent text-white">
                     <svg
@@ -527,36 +504,7 @@ export default function BSafePage() {
         </div>
       </section>
 
-      <section className="section bg-surface-alt" id="faq">
-        <div className="container-x">
-          <SectionHeader title="Frequently Asked Questions" />
-          <div className="mx-auto mt-14 max-w-3xl divide-y divide-ink-300/60 rounded-2xl border border-ink-300/60 bg-white">
-            {faqs.map((f) => (
-              <details key={f.q} className="group px-6 py-5">
-                <summary className="flex cursor-pointer items-center justify-between gap-4 text-[15px] font-semibold text-ink-900">
-                  {f.q}
-                  <span
-                    aria-hidden="true"
-                    className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-ink-300 text-ink-700 transition-transform group-open:rotate-45"
-                  >
-                    <svg viewBox="0 0 20 20" fill="none" className="h-3 w-3">
-                      <path
-                        d="M10 4v12M4 10h12"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                      />
-                    </svg>
-                  </span>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700">
-                  {f.a}
-                </p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq items={faqs} />
 
       <FinalCta />
     </main>

@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Fragment, useEffect, useState } from "react";
 import { BookDemoButton } from "@/components/book-demo-button";
 
@@ -20,7 +19,7 @@ const steps = [
     title: "Verify your number",
     desc: "Enter the 4-digit OTP we send to your phone and your account is secure from day one.",
     image: {
-      src: "/device-step-otp.webp",
+      src: "/device-step-otp-v2.webp",
       width: 1471,
       height: 2582,
       alt: "LOTS247 mobile app — OTP verification screen",
@@ -30,7 +29,7 @@ const steps = [
     title: "Choose your plan",
     desc: "Activate Sarathi at just ₹3/day for 24×7 on-call, on-site legal and challan resolution.",
     image: {
-      src: "/device-step-plan.webp",
+      src: "/device-step-plan-v3.webp",
       width: 1471,
       height: 2582,
       alt: "LOTS247 mobile app — Choose your Sarathi plan screen",
@@ -51,9 +50,11 @@ const steps = [
 const AUTOPLAY_MS = 5000;
 
 export function HowItWorks({
-  cta,
+  ctaLabel = "Book a demo",
+  ctaVariant = "demo",
 }: {
-  cta?: { label: string; href: string };
+  ctaLabel?: string;
+  ctaVariant?: "demo" | "register";
 } = {}) {
   const [active, setActive] = useState(0);
 
@@ -126,46 +127,23 @@ export function HowItWorks({
             </ol>
 
             <div className="mt-16 pl-[60px]">
-              {cta ? (
-                <Link
-                  href={cta.href}
-                  className="btn-primary flex w-full max-w-sm items-center justify-center gap-2"
+              <BookDemoButton variant={ctaVariant} className="btn-primary flex w-full max-w-sm items-center justify-center gap-2">
+                {ctaLabel}
+                <svg
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  aria-hidden="true"
+                  className="h-4 w-4"
                 >
-                  {cta.label}
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                  >
-                    <path
-                      d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </Link>
-              ) : (
-                <BookDemoButton className="btn-primary flex w-full max-w-sm items-center justify-center gap-2">
-                  Book a demo
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                    className="h-4 w-4"
-                  >
-                    <path
-                      d="M4 10h12m0 0l-4-4m4 4l-4 4"
-                      stroke="currentColor"
-                      strokeWidth="1.75"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </BookDemoButton>
-              )}
+                  <path
+                    d="M4 10h12m0 0l-4-4m4 4l-4 4"
+                    stroke="currentColor"
+                    strokeWidth="1.75"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </BookDemoButton>
             </div>
           </div>
 

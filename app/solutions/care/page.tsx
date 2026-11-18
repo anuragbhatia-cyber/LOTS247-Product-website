@@ -1,19 +1,20 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { FinalCta } from "@/components/sections/final-cta";
 import { HowItWorks } from "@/components/sections/how-it-works";
+import { BookDemoButton } from "@/components/book-demo-button";
+import { Faq } from "@/components/sections/faq";
 
 export const metadata: Metadata = {
-  title: "Care — Vehicle Legal Assistance for Private Owners | LOTS247",
+  title: "RoadCare — Vehicle Legal Assistance for Private Owners | LOTS247",
   description:
-    "LOTS247 Care is a vehicle legal assistance plan for private vehicle owners — 24×7 on-call resolution, challan-as-a-service, dashboard access, and WhatsApp incident updates for one vehicle at ₹999 for six months.",
+    "LOTS247 RoadCare is a vehicle legal assistance plan for private vehicle owners — 24×7 on-call resolution, challan-as-a-service, dashboard access, and WhatsApp incident updates for one vehicle at ₹999 for six months.",
 };
 
 const features = [
   {
     title: "Coverage for 1 Vehicle",
-    desc: "Each LOTS247 Care subscription covers one vehicle, built around the needs of individual private vehicle owners.",
+    desc: "Each LOTS247 RoadCare subscription covers one vehicle, built around the needs of individual private vehicle owners.",
     icon: "truck",
   },
   {
@@ -129,38 +130,38 @@ const benefits = [
   },
 ];
 
-const summary = [
+const summary: (string | { label: string; items: string[] })[] = [
   "Coverage for 1 Vehicle",
   "Six-Month Validity",
   "24×7 On-Call Resolution",
-  "Challan-as-a-Service",
-  "Online Challan Resolution",
-  "Express Challan Resolution",
-  "Court Challan Resolution",
   "On-Site Legal Resolution",
-  "RTO-as-a-Service",
+  "RTO Services",
   "Dashboard Access",
   "WhatsApp Incident Updates",
   "Add-On Services on Pay Per Use",
   "Value-Added Services on Pay Per Use",
+  {
+    label: "Challan Resolution",
+    items: ["Online Challans", "Court Challans", "Express Challans"],
+  },
 ];
 
 const faqs = [
   {
-    q: "What is LOTS247 Care?",
-    a: "LOTS247 Care is a six-month roadside legal assistance subscription for private vehicle owners. It provides 24×7 on-call legal assistance, challan-related services, dashboard access, and incident updates via WhatsApp.",
+    q: "What is LOTS247 RoadCare?",
+    a: "LOTS247 RoadCare is a six-month roadside legal assistance subscription for private vehicle owners. It provides 24×7 on-call legal assistance, challan-related services, dashboard access, and incident updates via WhatsApp.",
   },
   {
-    q: "What is the price of LOTS247 Care?",
-    a: "LOTS247 Care is available at ₹999 per vehicle for six months.",
+    q: "What is the price of LOTS247 RoadCare?",
+    a: "LOTS247 RoadCare is available at ₹999 per vehicle for six months.",
   },
   {
     q: "How many vehicles are covered under the subscription?",
-    a: "Each LOTS247 Care subscription covers one private vehicle.",
+    a: "Each LOTS247 RoadCare subscription covers one private vehicle.",
   },
   {
-    q: "Does LOTS247 Care provide 24×7 legal assistance?",
-    a: "Yes. LOTS247 Care includes 24×7 on-call legal assistance for vehicle-related roadside legal issues.",
+    q: "Does LOTS247 RoadCare provide 24×7 legal assistance?",
+    a: "Yes. LOTS247 RoadCare includes 24×7 on-call legal assistance for vehicle-related roadside legal issues.",
   },
   {
     q: "Is on-site legal assistance included in the subscription?",
@@ -168,39 +169,39 @@ const faqs = [
   },
   {
     q: "Can I get assistance with my vehicle challans?",
-    a: "Yes. LOTS247 Care includes Challan-as-a-Service, with assistance available for eligible online, Lok Adalat, court, and express challan resolution options.",
+    a: "Yes. LOTS247 RoadCare includes Challan-as-a-Service, with assistance available for eligible online, Lok Adalat, court, and express challan resolution options.",
   },
   {
     q: "What are the challan resolution charges?",
     a: "The applicable service charges are: Online Challan Resolution — ₹200, Lok Adalat Resolution — ₹1,000, Court Challan Resolution — ₹2,000, and Express Challan Resolution — ₹3,000. Resolution is subject to eligibility and applicable service conditions.",
   },
   {
-    q: "Does LOTS247 Care provide RTO assistance?",
+    q: "Does LOTS247 RoadCare provide RTO assistance?",
     a: "Yes. RTO-as-a-Service is available on a pay-per-use basis for applicable vehicle-related requirements.",
   },
   {
-    q: "Does LOTS247 Care include dashboard access?",
-    a: "Yes. Dashboard access is included in the LOTS247 Care subscription.",
+    q: "Does LOTS247 RoadCare include dashboard access?",
+    a: "Yes. Dashboard access is included in the LOTS247 RoadCare subscription.",
   },
   {
     q: "Will I receive updates about my incident?",
-    a: "Yes. LOTS247 Care includes incident updates through WhatsApp.",
+    a: "Yes. LOTS247 RoadCare includes incident updates through WhatsApp.",
   },
   {
     q: "Are automated and personalized reports included?",
-    a: "No. Automated reports and personalized reports are not included in the LOTS247 Care subscription.",
+    a: "No. Automated reports and personalized reports are not included in the LOTS247 RoadCare subscription.",
   },
   {
     q: "Is a Dedicated Account Manager included?",
-    a: "No. Dedicated Account Manager support is not included in the LOTS247 Care plan.",
+    a: "No. Dedicated Account Manager support is not included in the LOTS247 RoadCare plan.",
   },
   {
     q: "Can I access additional services?",
     a: "Yes. On-site legal assistance, RTO services, add-on services, and value-added services are available on a pay-per-use basis.",
   },
   {
-    q: "Who should subscribe to LOTS247 Care?",
-    a: "LOTS247 Care is ideal for private car owners, daily commuters, families, and frequent travellers who want access to legal assistance and challan resolution support for their vehicle.",
+    q: "Who should subscribe to LOTS247 RoadCare?",
+    a: "LOTS247 RoadCare is ideal for private car owners, daily commuters, families, and frequent travellers who want access to legal assistance and challan resolution support for their vehicle.",
   },
 ];
 
@@ -326,7 +327,7 @@ export default function CarePage() {
             }}
           >
             <Image
-              src="/care-hero-sedan.png"
+              src="/care-hero-sedan-v2.png"
               alt="White sedan driving on a city highway"
               fill
               priority
@@ -353,7 +354,7 @@ export default function CarePage() {
           <div className="max-w-xl">
             <Image
               src="/logo-care.png"
-              alt="LOTS247 Care"
+              alt="LOTS247 RoadCare"
               width={360}
               height={110}
               className="-ml-3 h-14 w-auto object-contain md:h-16"
@@ -367,13 +368,10 @@ export default function CarePage() {
               WhatsApp updates for your vehicle — ₹999 for six months.
             </p>
             <div className="mt-8">
-              <Link
-                href="/contact"
-                className="btn-primary min-w-[240px] rounded-full px-12 shadow-[0_8px_20px_-6px_rgba(44,183,125,0.55)]"
-              >
-                Register Now
+              <BookDemoButton variant="register" className="btn-primary min-w-[240px] rounded-full px-12 shadow-[0_8px_20px_-6px_rgba(44,183,125,0.55)]">
+                Get Subscription
                 <Arrow />
-              </Link>
+              </BookDemoButton>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-5 gap-y-3 text-[14px] font-semibold text-ink-900">
               <span className="inline-flex items-center gap-2">
@@ -394,7 +392,7 @@ export default function CarePage() {
 
           <div className="relative mt-12 aspect-[2/1] overflow-hidden rounded-3xl shadow-[0_24px_50px_-20px_rgba(15,23,42,0.35)] lg:hidden">
             <Image
-              src="/care-hero-sedan.png"
+              src="/care-hero-sedan-v2.png"
               alt="White sedan driving on a city highway"
               fill
               sizes="100vw"
@@ -436,7 +434,7 @@ export default function CarePage() {
           <div className="grid items-center gap-10 overflow-hidden rounded-3xl bg-[#0F172A] p-8 md:p-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-12">
             <div>
               <h2 className="text-2xl font-bold leading-[1.2] tracking-[-0.01em] text-white md:text-[34px]">
-                Why Private Vehicle Owners Need LOTS247 Care
+                Why Private Vehicle Owners Need LOTS247 RoadCare
               </h2>
               <ul className="mt-8 grid gap-5 sm:grid-cols-2">
                 {problems.map((p) => (
@@ -452,15 +450,15 @@ export default function CarePage() {
                 ))}
               </ul>
               <div className="mt-8">
-                <Link href="/contact" className="btn-primary rounded-full px-7">
+                <BookDemoButton variant="register" className="btn-primary rounded-full px-7">
                   Register Now
                   <Arrow />
-                </Link>
+                </BookDemoButton>
               </div>
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_24px_50px_-20px_rgba(0,0,0,0.6)] lg:aspect-[5/4] lg:-rotate-1">
               <Image
-                src="/care-roadside-breakdown.png"
+                src="/care-roadside-breakdown-v2.png"
                 alt="Driver checking his phone beside a broken-down car on a highway at sunset"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
@@ -471,10 +469,10 @@ export default function CarePage() {
         </div>
       </section>
 
-      <HowItWorks cta={{ label: "Register Now", href: "/contact" }} />
+      <HowItWorks ctaLabel="Register Now" ctaVariant="register" />
 
       {/* Features */}
-      <section className="bg-surface-alt py-20 md:py-24">
+      <section className="bg-[#EDF1F7] py-20 md:py-24">
         <div className="container-x">
           <Heading title="Everything You Need for Vehicle Legal Assistance" />
           <div className="mx-auto mt-12 grid max-w-6xl gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -516,7 +514,7 @@ export default function CarePage() {
                 </div>
                 <div className="relative aspect-[3/2] w-full">
                   <Image
-                    src="/care-plan-suv-orange-shield.png"
+                    src="/care-plan-suv-orange-shield-v2.png"
                     alt="White SUV protected by an orange shield with a check mark"
                     fill
                     sizes="(min-width: 1024px) 260px, 50vw"
@@ -538,29 +536,47 @@ export default function CarePage() {
                 ))}
               </div>
 
-              <Link
-                href="/contact"
-                className="btn-primary mt-6 w-full shadow-[0_10px_24px_-10px_rgba(44,183,125,0.7)]"
-              >
+              <BookDemoButton variant="register" className="btn-primary mt-6 w-full shadow-[0_10px_24px_-10px_rgba(44,183,125,0.7)]">
                 Register Now
                 <Arrow />
-              </Link>
+              </BookDemoButton>
             </div>
 
             <div className="flex flex-col rounded-2xl border border-ink-300/60 bg-ink-100 p-7 md:p-8">
               <div className="text-lg font-bold text-ink-900">
-                What Do You Get with LOTS247 Care?
+                What Do You Get with LOTS247 RoadCare?
               </div>
               <ul className="mt-7 grid gap-x-6 gap-y-6 sm:grid-cols-2">
-                {summary.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900"
-                  >
-                    <Check filled large />
-                    <span>{item}</span>
-                  </li>
-                ))}
+                {summary.map((item) => {
+                  const label = typeof item === "string" ? item : item.label;
+                  return (
+                    <li
+                      key={label}
+                      className={`flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900 ${
+                        typeof item === "string" && label !== "Value-Added Services on Pay Per Use"
+                          ? ""
+                          : "sm:col-span-2"
+                      }`}
+                    >
+                      <Check filled large />
+                      <div>
+                        <span>{label}</span>
+                        {typeof item !== "string" && (
+                          <ul className="mt-2 flex flex-wrap gap-1.5">
+                            {item.items.map((sub) => (
+                              <li
+                                key={sub}
+                                className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-[12px] font-medium leading-5 text-ink-700"
+                              >
+                                {sub}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
@@ -570,7 +586,7 @@ export default function CarePage() {
       {/* Why choose */}
       <section className="bg-[#0F172A] py-20 md:py-24">
         <div className="container-x">
-          <Heading title="Why Choose LOTS247 Care?" dark />
+          <Heading title="Why Choose LOTS247 RoadCare?" dark />
           <div className="mx-auto mt-12 grid max-w-6xl gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
             {benefits.map((b, i) => (
               <div
@@ -582,7 +598,7 @@ export default function CarePage() {
                 <span className="grid h-16 w-16 place-items-center rounded-full bg-accent/15 text-accent">
                   <Icon name={benefitIcons[i]} className="h-7 w-7" />
                 </span>
-                <div className="mt-4 text-[15px] font-semibold text-white">{b.title}</div>
+                <div className="mt-4 text-[18px] font-semibold text-white">{b.title}</div>
                 <p className="mt-2 max-w-xs text-sm leading-relaxed text-white/70">{b.desc}</p>
               </div>
             ))}
@@ -590,39 +606,7 @@ export default function CarePage() {
         </div>
       </section>
 
-      {/* FAQ */}
-      <section className="py-16" id="faq">
-        <div className="container-x">
-          <Heading title="Frequently Asked Questions" />
-          <div className="mx-auto mt-10 max-w-4xl space-y-3">
-            {faqs.map((f) => (
-              <details
-                key={f.q}
-                className="group rounded-xl border border-ink-300/60 bg-white px-6 py-4 shadow-card"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-ink-900 [&::-webkit-details-marker]:hidden">
-                  {f.q}
-                  <svg
-                    viewBox="0 0 20 20"
-                    fill="none"
-                    aria-hidden="true"
-                    className="h-4 w-4 shrink-0 text-ink-900 transition-transform group-open:rotate-180"
-                  >
-                    <path
-                      d="M5 8l5 5 5-5"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </summary>
-                <p className="mt-3 text-sm leading-relaxed text-ink-700">{f.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Faq items={faqs} />
 
       <FinalCta />
     </main>

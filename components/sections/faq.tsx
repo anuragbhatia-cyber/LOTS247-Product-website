@@ -45,17 +45,19 @@ export const faqs = [
   },
 ];
 
-export function Faq() {
+type FaqItem = { q: string; a: string };
+
+export function Faq({ items = faqs }: { items?: FaqItem[] } = {}) {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="section bg-white">
+    <section className="section bg-white" id="faq">
       <div className="container-x">
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="h2">Frequently asked questions</h2>
         </div>
         <div className="mx-auto mt-10 max-w-5xl space-y-4">
-          {faqs.map((f, i) => {
+          {items.map((f, i) => {
             const isOpen = open === i;
             return (
               <div

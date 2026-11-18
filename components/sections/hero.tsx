@@ -8,8 +8,8 @@ const slide = {
   primaryCta: { label: "Book a demo", href: "/contact" },
   secondaryCta: { label: "Login", href: "https://dashboard.lots247.in/login" },
   image: {
-    src: "/hero-fleet-duo.png",
-    alt: "A taxi driver and a truck driver standing confidently beside their vehicles at golden hour, with a mixed fleet of cars and trucks behind them",
+    src: "/hero-roadside-legal.webp",
+    alt: "A driver checking LOTS247 legal assistance, challan support, dispute resolution and expert support on his phone beside a highway with a car, truck and scooter",
   },
 };
 
@@ -62,7 +62,7 @@ export function Hero() {
           </div>
 
           <div
-            className="relative flex justify-end"
+            className="relative flex justify-end lg:-mr-12"
             style={{
               WebkitMaskImage:
                 "linear-gradient(to right, transparent 0%, #000 18%, #000 82%, transparent 100%), linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%)",
@@ -72,13 +72,13 @@ export function Hero() {
               maskComposite: "intersect",
             }}
           >
-            <div className="relative aspect-[10/7] w-full max-w-[620px]">
+            <div className="relative aspect-[16/9] w-full max-w-[680px]">
               <Image
                 src={slide.image.src}
                 alt={slide.image.alt}
                 fill
                 priority
-                sizes="(min-width: 1024px) 620px, 100vw"
+                sizes="(min-width: 1024px) 680px, 100vw"
                 className="object-cover"
               />
             </div>

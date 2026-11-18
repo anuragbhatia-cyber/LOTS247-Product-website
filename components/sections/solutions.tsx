@@ -199,9 +199,20 @@ function IndustryCard({ item, compact = false }: { item: Industry; compact?: boo
           {item.clientLogos ? (
             <div className="mt-6">
               {item.slug === "insurance" ? (
-                <span className="inline-flex items-center rounded-full bg-secondary-soft px-3 py-1.5 text-sm font-bold text-ink-900">
-                  Trusted by 12+ companies
-                </span>
+                <div className="flex flex-wrap items-center gap-3">
+                  <div className="relative h-10 w-28">
+                    <Image
+                      src="/client-icici-lombard.png"
+                      alt="ICICI Lombard"
+                      fill
+                      sizes="112px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="inline-flex items-center rounded-full bg-secondary-soft px-3 py-1.5 text-sm font-bold text-ink-900">
+                    + 12 more companies
+                  </span>
+                </div>
               ) : (
                 <div className="grid grid-cols-3 gap-2">
                   {item.clientLogos.slice(0, 3).map((logo) => (
@@ -277,9 +288,20 @@ function IndustryCard({ item, compact = false }: { item: Industry; compact?: boo
           {item.clientLogos ? (
             <div className="mt-8">
               {item.slug === "insurance" ? (
-                <span className="inline-flex items-center rounded-full bg-secondary-soft px-4 py-2 text-base font-bold text-ink-900">
-                  Trusted by 12+ companies
-                </span>
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="relative h-14 w-40">
+                    <Image
+                      src="/client-icici-lombard.png"
+                      alt="ICICI Lombard"
+                      fill
+                      sizes="160px"
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="inline-flex items-center rounded-full bg-secondary-soft px-4 py-2 text-base font-bold text-ink-900">
+                    + 12 more companies
+                  </span>
+                </div>
               ) : (
                 <div className="grid grid-cols-3 gap-2 sm:grid-cols-4">
                   {item.clientLogos.map((logo) => (
