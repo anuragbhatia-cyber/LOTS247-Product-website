@@ -202,7 +202,7 @@ export function BookDemoButton({ className, children, variant = "demo" }: Props)
             ) : (
               <>
                 <h3 id={titleId} className="text-xl font-bold text-ink-900">
-                  {isRegister ? "Register Now" : "Book a demo"}
+                  {isRegister ? "Subscribe to RoadCare" : "Book a demo"}
                 </h3>
                 <form
                   action="/api/book-demo"
@@ -278,7 +278,7 @@ export function BookDemoButton({ className, children, variant = "demo" }: Props)
                     </>
                   )}
                   <button type="submit" className="btn-primary mt-2 w-full">
-                    {isRegister ? "Register" : "Request demo"}
+                    {isRegister ? "Get Subscription" : "Request demo"}
                   </button>
                 </form>
               </>

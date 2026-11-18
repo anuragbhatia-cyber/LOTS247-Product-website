@@ -134,17 +134,16 @@ const summary: (string | { label: string; items: string[] })[] = [
   "Coverage for 1 Vehicle",
   "Six-Month Validity",
   "24×7 On-Call Resolution",
-  "Challan-as-a-Service",
-  {
-    label: "Challan Resolution",
-    items: ["Online Challans", "Court Challans", "Express Challans"],
-  },
   "On-Site Legal Resolution",
-  "RTO-as-a-Service",
+  "RTO Services",
   "Dashboard Access",
   "WhatsApp Incident Updates",
   "Add-On Services on Pay Per Use",
   "Value-Added Services on Pay Per Use",
+  {
+    label: "Challan Resolution",
+    items: ["Online Challans", "Court Challans", "Express Challans"],
+  },
 ];
 
 const faqs = [
@@ -370,7 +369,7 @@ export default function CarePage() {
             </p>
             <div className="mt-8">
               <BookDemoButton variant="register" className="btn-primary min-w-[240px] rounded-full px-12 shadow-[0_8px_20px_-6px_rgba(44,183,125,0.55)]">
-                Register Now
+                Get Subscription
                 <Arrow />
               </BookDemoButton>
             </div>
@@ -515,7 +514,7 @@ export default function CarePage() {
                 </div>
                 <div className="relative aspect-[3/2] w-full">
                   <Image
-                    src="/care-plan-suv-orange-shield.png"
+                    src="/care-plan-suv-orange-shield-v2.png"
                     alt="White SUV protected by an orange shield with a check mark"
                     fill
                     sizes="(min-width: 1024px) 260px, 50vw"
@@ -553,17 +552,21 @@ export default function CarePage() {
                   return (
                     <li
                       key={label}
-                      className="flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900"
+                      className={`flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900 ${
+                        typeof item === "string" && label !== "Value-Added Services on Pay Per Use"
+                          ? ""
+                          : "sm:col-span-2"
+                      }`}
                     >
                       <Check filled large />
                       <div>
                         <span>{label}</span>
                         {typeof item !== "string" && (
-                          <ul className="mt-2 flex flex-col gap-1.5 border-l-2 border-accent/30 pl-3">
+                          <ul className="mt-2 flex flex-wrap gap-1.5">
                             {item.items.map((sub) => (
                               <li
                                 key={sub}
-                                className="text-[13px] font-medium leading-5 text-ink-700"
+                                className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 text-[12px] font-medium leading-5 text-ink-700"
                               >
                                 {sub}
                               </li>
