@@ -19,7 +19,7 @@ const steps = [
     title: "Verify your number",
     desc: "Enter the 4-digit OTP we send to your phone and your account is secure from day one.",
     image: {
-      src: "/device-step-otp.webp",
+      src: "/device-step-otp-v2.webp",
       width: 1471,
       height: 2582,
       alt: "LOTS247 mobile app — OTP verification screen",
@@ -29,7 +29,7 @@ const steps = [
     title: "Choose your plan",
     desc: "Activate Sarathi at just ₹3/day for 24×7 on-call, on-site legal and challan resolution.",
     image: {
-      src: "/device-step-plan.webp",
+      src: "/device-step-plan-v3.webp",
       width: 1471,
       height: 2582,
       alt: "LOTS247 mobile app — Choose your Sarathi plan screen",

@@ -12,66 +12,21 @@ type Props = {
 const inputClass =
   "rounded-lg border border-ink-300/60 bg-white px-3.5 py-2.5 text-[14px] text-ink-900 placeholder:text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
 
-const selectClass =
-  "w-full appearance-none rounded-lg border border-ink-300/60 bg-white bg-[right_0.75rem_center] bg-no-repeat px-3.5 py-2.5 pr-9 text-[14px] text-ink-500 focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/30";
-
-const selectChevron = {
-  backgroundImage:
-    "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 20 20' fill='none'><path d='M5 8l5 5 5-5' stroke='rgb(100 116 139 / 0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>\")",
-};
-
-const businessTypes = [
-  "Individual vehicle owner",
-  "Fleet operator",
-  "Transporter",
-  "Logistics company",
-  "Taxi / cab operator",
-  "Other",
-];
-
-const states = [
-  "Andaman and Nicobar Islands",
-  "Andhra Pradesh",
-  "Arunachal Pradesh",
-  "Assam",
-  "Bihar",
-  "Chandigarh",
-  "Chhattisgarh",
-  "Dadra and Nagar Haveli and Daman and Diu",
-  "Delhi",
-  "Goa",
-  "Gujarat",
-  "Haryana",
-  "Himachal Pradesh",
-  "Jammu and Kashmir",
-  "Jharkhand",
-  "Karnataka",
-  "Kerala",
-  "Ladakh",
-  "Lakshadweep",
-  "Madhya Pradesh",
-  "Maharashtra",
-  "Manipur",
-  "Meghalaya",
-  "Mizoram",
-  "Nagaland",
-  "Odisha",
-  "Puducherry",
-  "Punjab",
-  "Rajasthan",
-  "Sikkim",
-  "Tamil Nadu",
-  "Telangana",
-  "Tripura",
-  "Uttar Pradesh",
-  "Uttarakhand",
-  "West Bengal",
-];
-
-function FieldLabel({ children }: { children: React.ReactNode }) {
+function FieldLabel({
+  children,
+  optional,
+}: {
+  children: React.ReactNode;
+  optional?: boolean;
+}) {
   return (
     <span className="text-[13px] font-medium text-ink-700">
-      {children} <span className="text-red-500">*</span>
+      {children}{" "}
+      {optional ? (
+        <span className="font-normal text-ink-500">(optional)</span>
+      ) : (
+        <span className="text-red-500">*</span>
+      )}
     </span>
   );
 }
@@ -111,60 +66,27 @@ function RegisterFields() {
         </div>
       </label>
       <label className="flex flex-col gap-1.5">
-        <FieldLabel>Business Type</FieldLabel>
-        <select
-          name="business_type"
-          defaultValue=""
-          required
-          className={selectClass}
-          style={selectChevron}
-        >
-          <option value="" disabled>
-            Select business type
-          </option>
-          {businessTypes.map((t) => (
-            <option key={t} className="text-ink-900" value={t}>
-              {t}
-            </option>
-          ))}
-        </select>
+        <FieldLabel optional>Email</FieldLabel>
+        <input
+          type="email"
+          name="email"
+          autoComplete="email"
+          placeholder="you@example.com"
+          className={inputClass}
+        />
       </label>
-      <div className="grid grid-cols-2 gap-3">
-        <label className="flex min-w-0 flex-col gap-1.5">
-          <FieldLabel>State</FieldLabel>
-          <select
-            name="state"
-            defaultValue=""
-            required
-            className={selectClass}
-            style={selectChevron}
-          >
-            <option value="" disabled>
-              Select state
-            </option>
-            {states.map((s) => (
-              <option key={s} className="text-ink-900" value={s}>
-                {s}
-              </option>
-            ))}
-          </select>
-        </label>
-        <label className="flex min-w-0 flex-col gap-1.5">
-          <FieldLabel>Pincode</FieldLabel>
-          <input
-            type="text"
-            name="pincode"
-            required
-            inputMode="numeric"
-            autoComplete="postal-code"
-            pattern="[1-9][0-9]{5}"
-            maxLength={6}
-            title="Enter a valid 6-digit pin code"
-            placeholder="Enter pin code"
-            className={inputClass}
-          />
-        </label>
-      </div>
+      <label className="flex flex-col gap-1.5">
+        <FieldLabel>Vehicle Number</FieldLabel>
+        <input
+          type="text"
+          name="vehicle_number"
+          required
+          autoCapitalize="characters"
+          maxLength={13}
+          placeholder="e.g. DL01AB1234"
+          className={`${inputClass} uppercase placeholder:normal-case`}
+        />
+      </label>
     </>
   );
 }

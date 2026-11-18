@@ -130,14 +130,15 @@ const benefits = [
   },
 ];
 
-const summary = [
+const summary: (string | { label: string; items: string[] })[] = [
   "Coverage for 1 Vehicle",
   "Six-Month Validity",
   "24×7 On-Call Resolution",
   "Challan-as-a-Service",
-  "Online Challan Resolution",
-  "Express Challan Resolution",
-  "Court Challan Resolution",
+  {
+    label: "Challan Resolution",
+    items: ["Online Challans", "Court Challans", "Express Challans"],
+  },
   "On-Site Legal Resolution",
   "RTO-as-a-Service",
   "Dashboard Access",
@@ -327,7 +328,7 @@ export default function CarePage() {
             }}
           >
             <Image
-              src="/care-hero-sedan.png"
+              src="/care-hero-sedan-v2.png"
               alt="White sedan driving on a city highway"
               fill
               priority
@@ -392,7 +393,7 @@ export default function CarePage() {
 
           <div className="relative mt-12 aspect-[2/1] overflow-hidden rounded-3xl shadow-[0_24px_50px_-20px_rgba(15,23,42,0.35)] lg:hidden">
             <Image
-              src="/care-hero-sedan.png"
+              src="/care-hero-sedan-v2.png"
               alt="White sedan driving on a city highway"
               fill
               sizes="100vw"
@@ -458,7 +459,7 @@ export default function CarePage() {
             </div>
             <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-[0_24px_50px_-20px_rgba(0,0,0,0.6)] lg:aspect-[5/4] lg:-rotate-1">
               <Image
-                src="/care-roadside-breakdown.png"
+                src="/care-roadside-breakdown-v2.png"
                 alt="Driver checking his phone beside a broken-down car on a highway at sunset"
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
@@ -547,15 +548,32 @@ export default function CarePage() {
                 What Do You Get with LOTS247 RoadCare?
               </div>
               <ul className="mt-7 grid gap-x-6 gap-y-6 sm:grid-cols-2">
-                {summary.map((item) => (
-                  <li
-                    key={item}
-                    className="flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900"
-                  >
-                    <Check filled large />
-                    <span>{item}</span>
-                  </li>
-                ))}
+                {summary.map((item) => {
+                  const label = typeof item === "string" ? item : item.label;
+                  return (
+                    <li
+                      key={label}
+                      className="flex items-start gap-3 text-[14px] font-semibold leading-6 text-ink-900"
+                    >
+                      <Check filled large />
+                      <div>
+                        <span>{label}</span>
+                        {typeof item !== "string" && (
+                          <ul className="mt-2 flex flex-col gap-1.5 border-l-2 border-accent/30 pl-3">
+                            {item.items.map((sub) => (
+                              <li
+                                key={sub}
+                                className="text-[13px] font-medium leading-5 text-ink-700"
+                              >
+                                {sub}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>
